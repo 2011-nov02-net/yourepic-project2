@@ -20,11 +20,13 @@ stages:
             versionSpec: '10.x'
           displayName: 'Setup Environment'
 
-        - script: cd yourepic && npm install
+        - script: npm install
           displayName: 'Install Dependencies'
+          workingDirectory: ./yourepic
 
-        - script: cd yourepic && npx ng build --prod
+        - script: npx ng build --prod
           displayName: 'Build'
+          workingDirectory: ./yourepic
 
   - stage: release
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
