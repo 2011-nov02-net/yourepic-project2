@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 stages:
-  - stage: installbuild
+  - stage: install
     
     jobs:
       - job: install
@@ -24,6 +24,12 @@ stages:
           displayName: 'Install Dependencies'
           workingDirectory: ./yourepic
 
+        
+  - stage: build
+
+    jobs:
+      - job:
+        steps:
         - script: npx ng build --prod
           displayName: 'Build'
           workingDirectory: ./yourepic
@@ -33,8 +39,9 @@ stages:
             rootFolderOrFile: 'yourepic/dist'
             includeRootFolder: true
             archiveType: 'zip'
-            archiveFile: '$(Build.ArtifactStagingDirectory)/yourepic.zip'
+            archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
             replaceExistingArchive: true
+  - stage: test
 
   - stage: release
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
@@ -54,4 +61,4 @@ stages:
                   azureSubscription: 'Mendez Azure Subscription(e651ad7e-a3af-4e5b-9734-05a198120bd7)'
                   appType: 'webApp'
                   WebAppName: 'YourEpic'
-                  packageForLinux: '$(Build.ArtifactStagingDirectory)/yourepic.zip'
+                  packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
