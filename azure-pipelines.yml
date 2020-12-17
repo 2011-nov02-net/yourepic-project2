@@ -20,7 +20,7 @@ stages:
             versionSpec: '10.x'
           displayName: 'Setup Environment'
 
-        - script: npm install
+        - script: cd your epic && npm install
           displayName: 'Install Dependencies'
 
         - script: cd yourepic && npx ng build --prod
