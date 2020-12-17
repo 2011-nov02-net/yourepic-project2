@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 stages:
-  - stage: install and build
+  - stage: install-build
     
     jobs:
       - job: install
