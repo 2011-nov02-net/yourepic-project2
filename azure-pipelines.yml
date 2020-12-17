@@ -46,7 +46,7 @@ stages:
             deploy:
               steps:
               - download: current
-                artifact: app
+                artifact: '*.zip'
                 displayName: download app
               - task: AzureRmWebAppDeployment@4
                 inputs:
