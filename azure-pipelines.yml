@@ -30,12 +30,16 @@ stages:
         
         - task: ArchiveFiles@2
           inputs:
-            rootFolderOrFile: 'yourepic/dist'
+            rootFolderOrFile: 'yourepic/dist/yourepic'
             includeRootFolder: false
             archiveType: 'zip'
-            archiveFile: '$(Build.ArtifactStagingDirectory)/yourepic.zip'
+            archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
             replaceExistingArchive: true
-
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
   - stage: release
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     jobs:
@@ -46,7 +50,7 @@ stages:
             deploy:
               steps:
               - download: current
-                artifact: 'yourepic.zip'
+                artifact: 'drop'
                 displayName: download app
               - task: AzureRmWebAppDeployment@4
                 inputs:
@@ -54,4 +58,4 @@ stages:
                   azureSubscription: 'Mendez Azure Subscription(e651ad7e-a3af-4e5b-9734-05a198120bd7)'
                   appType: 'webApp'
                   WebAppName: 'YourEpic'
-                  packageForLinux: '$(Build.ArtifactStagingDirectory)/yourepic.zip'
+                  packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
