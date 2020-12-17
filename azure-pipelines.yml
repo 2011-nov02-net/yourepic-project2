@@ -27,13 +27,14 @@ stages:
         - script: npx ng build --prod
           displayName: 'Build'
           workingDirectory: ./yourepic
-          
-        - task: PublishBuildArtifacts@1
+        
+        - task: ArchiveFiles@2
           inputs:
-            PathtoPublish: 'dist'
-            ArtifactName: 'web-app'
-            publishLocation: 'Container'
-          displayName: 'Publish Artifacts'
+            rootFolderOrFile: 'yourepic/dist'
+            includeRootFolder: true
+            archiveType: 'zip'
+            archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+            replaceExistingArchive: true
 
   - stage: release
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
