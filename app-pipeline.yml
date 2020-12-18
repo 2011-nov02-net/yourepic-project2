@@ -1,0 +1,64 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - master/app
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: install
+    
+    jobs:
+      - job: install
+        steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '10.x'
+          displayName: 'Setup Environment'
+
+        - script: npm install
+          displayName: 'Install Dependencies'
+          workingDirectory: ./app
+
+        - script: npx ng build --prod
+          displayName: 'Build'
+          workingDirectory: ./app
+        
+        - task: ArchiveFiles@2
+          inputs:
+            rootFolderOrFile: 'app/dist/app'
+            includeRootFolder: false
+            archiveType: 'zip'
+            archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+            replaceExistingArchive: true
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
+
+  - stage: release
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    jobs:
+      - deployment: app_service
+        environment: prod
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - download: current
+                artifact: 'drop'
+                displayName: download app
+              - task: AzureRmWebAppDeployment@4
+                inputs:
+                  ConnectionType: 'AzureRM'
+                  azureSubscription: 'Mendez Azure Subscription(e651ad7e-a3af-4e5b-9734-05a198120bd7)'
+                  appType: 'webApp'
+                  WebAppName: 'YourEpic'
+                  packageForLinux: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
