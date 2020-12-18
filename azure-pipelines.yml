@@ -52,8 +52,8 @@ stages:
         - script: npm install
           displayName: 'Install Dependencies'
           workingDirectory: ./yourepic
-          
-        - script: npx ng test --watch=false
+
+        - script: npx ng test --watch=false --code-coverage
           displayName: 'Tests'
           workingDirectory: './yourepic'
 
