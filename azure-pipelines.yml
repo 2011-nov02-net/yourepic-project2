@@ -61,9 +61,11 @@ stages:
           inputs:
             SonarCloud: 'SonarCloud'
             organization: '2011-nov02-net'
-            scannerMode: 'MSBuild'
-            projectKey: '2011-nov02-net_yourepic-project2'
-            projectName: 'YourEpic'
+            scannerMode: 'CLI'
+            configMode: 'manual'
+            cliProjectKey: '2011-nov02-net_yourepic-project2'
+            cliSources: './yourepic/src'
+            extraProperties: 'sonar.coverage.exclusions=**/**spec.ts, yourepic//e2e/**/*'''
 
         - script: npm run test -- --watch=false --code-coverage
           displayName: 'Tests'
@@ -85,7 +87,7 @@ stages:
             testRunTitle: Angular
             testResultsFormat: JUnit
             testResultsFiles: "**/TESTS*.xml"
-            
+        - task: SonarCloudAnalyze@1
         - task: SonarCloudPublish@1
           inputs:
             pollingTimeoutSec: '300'
