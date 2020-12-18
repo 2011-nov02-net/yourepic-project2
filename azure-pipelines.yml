@@ -40,6 +40,22 @@ stages:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)'
             ArtifactName: 'drop'
             publishLocation: 'Container'
+      
+      - job: test
+        steps:
+        
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '10.x'
+          displayName: 'Setup Environment'
+
+        - script: npm install
+          displayName: 'Install Dependencies'
+          workingDirectory: ./yourepic
+          
+        - script: npx ng test --watch=false
+          displayName: 'Tests'
+          workingDirectory: './yourepic'
 
   - stage: release
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
