@@ -65,7 +65,7 @@ stages:
             projectKey: '2011-nov02-net_yourepic-project2'
             projectName: 'YourEpic'
 
-        - script: run test -- --watch=false --code-coverage
+        - script: npm run test -- --watch=false --code-coverage
           displayName: 'Tests'
           workingDirectory: './yourepic'
         - task: PublishCodeCoverageResults@1
