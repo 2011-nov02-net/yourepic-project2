@@ -73,8 +73,8 @@ stages:
           condition: succeededOrFailed()
           inputs:
             codeCoverageTool: Cobertura
-            summaryFileLocation: 'yourepic/coverage/cobertura-coverage.xml'
-            reportDirectory: yourepic/coverage
+            summaryFileLocation: './yourepic/coverage/cobertura-coverage.xml'
+            reportDirectory: ./yourepic/coverage
             failIfCoverageEmpty: true
 
         - task: PublishTestResults@2
