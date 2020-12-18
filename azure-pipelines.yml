@@ -52,10 +52,58 @@ stages:
         - script: npm install
           displayName: 'Install Dependencies'
           workingDirectory: ./yourepic
+        - task: SonarCloudPrepare@1
+          inputs:
+            SonarCloud: 'SonarCloud'
+            organization: '2011-nov02-net'
+            scannerMode: 'MSBuild'
+            projectKey: '2011-nov02-net_yourepic-project2'
+            projectName: 'YourEpic'
 
         - script: npx ng test --watch=false --code-coverage
           displayName: 'Tests'
           workingDirectory: './yourepic'
+        - task: PublishCodeCoverageResults@1
+          displayName: 'Publish code coverage Angular results'
+          condition: succeededOrFailed()
+          inputs:
+            codeCoverageTool: Cobertura
+            summaryFileLocation: 'src/angular7/coverage/cobertura-coverage.xml'
+            reportDirectory: src/angular7/coverage
+            failIfCoverageEmpty: true
+
+        - task: PublishTestResults@2
+          displayName: 'Publish Angular test results'
+          condition: succeededOrFailed()
+          inputs:
+            searchFolder: $(System.DefaultWorkingDirectory)/src/angular7/junit
+            testRunTitle: Angular
+            testResultsFormat: JUnit
+            testResultsFiles: "**/TESTS*.xml"
+
+        - task: Npm@1
+          displayName: 'Lint Angular'
+          inputs:
+            command: custom
+            customCommand: run lint --  --format=stylish
+            workingDir: src/angular7
+
+        - task: Npm@1
+          displayName: 'E2E Test Angular'
+          inputs:
+            command: custom
+            customCommand: run e2e
+            workingDir: src/angular7
+
+        - task: PublishTestResults@2
+          displayName: 'Publish Angular E2E test results'
+          condition: succeededOrFailed()
+          inputs:
+            searchFolder: $(System.DefaultWorkingDirectory)/src/angular7/e2e/junit
+            testRunTitle: Angular_E2E
+            testResultsFormat: JUnit
+            testResultsFiles: "**/junit*.xml"
+
 
   - stage: release
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
