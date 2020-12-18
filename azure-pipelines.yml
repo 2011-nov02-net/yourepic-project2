@@ -52,6 +52,11 @@ stages:
         - script: npm install
           displayName: 'Install Dependencies'
           workingDirectory: ./yourepic
+        - task: DeleteFiles@1
+          displayName: 'Delete JUnit files'
+          inputs:
+            SourceFolder: src/angular7/junit
+            Contents: 'TESTS*.xml'
         - task: SonarCloudPrepare@1
           inputs:
             SonarCloud: 'SonarCloud'
@@ -63,18 +68,23 @@ stages:
         - script: npx ng test --watch=false --code-coverage
           displayName: 'Tests'
           workingDirectory: './yourepic'
-        - task: PublishTestResults@2
-          inputs:
-            testResultsFormat: 'JUnit'
-            testResultsFiles: '**/TEST-*.xml'
-            searchFolder: ./yourepic
         - task: PublishCodeCoverageResults@1
-          displayName: 'publish code coverage report'
+          displayName: 'Publish code coverage Angular results'
           condition: succeededOrFailed()
           inputs:
             codeCoverageTool: Cobertura
-            summaryFileLocation: 'yourepic/coverage/cobertura-coverage.xml'
-            failIfCoverageEmpty: true   
+            summaryFileLocation: 'src/yourepic/coverage/cobertura-coverage.xml'
+            reportDirectory: src/yourepic/coverage
+            failIfCoverageEmpty: true
+
+        - task: PublishTestResults@2
+          displayName: 'Publish Angular test results'
+          condition: succeededOrFailed()
+          inputs:
+            searchFolder: $(System.DefaultWorkingDirectory)/src/yourepic/junit
+            testRunTitle: Angular
+            testResultsFormat: JUnit
+            testResultsFiles: "**/TESTS*.xml"
         - task: SonarCloudAnalyze@1
         - task: SonarCloudPublish@1
           inputs:
