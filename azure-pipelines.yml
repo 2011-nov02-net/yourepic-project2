@@ -68,8 +68,8 @@ stages:
           condition: succeededOrFailed()
           inputs:
             codeCoverageTool: Cobertura
-            summaryFileLocation: 'src/angular7/coverage/cobertura-coverage.xml'
-            reportDirectory: src/angular7/coverage
+            summaryFileLocation: 'yourepic/src/angular7/coverage/cobertura-coverage.xml'
+            reportDirectory: yourepic/src/angular7/coverage
             failIfCoverageEmpty: true
 
         - task: PublishTestResults@2
@@ -86,14 +86,14 @@ stages:
           inputs:
             command: custom
             customCommand: run lint --  --format=stylish
-            workingDir: src/angular7
+            workingDir: yourepic/src/angular7
 
         - task: Npm@1
           displayName: 'E2E Test Angular'
           inputs:
             command: custom
             customCommand: run e2e
-            workingDir: src/angular7
+            workingDir: yourepic/src/angular7
 
         - task: PublishTestResults@2
           displayName: 'Publish Angular E2E test results'
