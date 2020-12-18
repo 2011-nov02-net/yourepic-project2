@@ -72,9 +72,9 @@ stages:
           displayName: 'Publish code coverage Angular results'
           condition: succeededOrFailed()
           inputs:
-            codeCoverageTool: Cobertura
-            summaryFileLocation: './yourepic/coverage/cobertura-coverage.xml'
-            reportDirectory: ./yourepic/coverage
+            codeCoverageTool: 'Cobertura'
+            summaryFileLocation: './yourepic/coverage/*.xml'
+            reportDirectory: './yourepic/coverage'
             failIfCoverageEmpty: true
 
         - task: PublishTestResults@2
