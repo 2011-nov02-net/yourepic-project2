@@ -40,6 +40,11 @@ stages:
             PathtoPublish: '$(Build.ArtifactStagingDirectory)'
             ArtifactName: 'drop'
             publishLocation: 'Container'
+      
+      - job: test
+        steps:
+        - script: npx ng test --watch=false
+          displayName: 'Tests'
 
   - stage: release
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
