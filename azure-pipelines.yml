@@ -65,12 +65,9 @@ stages:
             projectKey: '2011-nov02-net_yourepic-project2'
             projectName: 'YourEpic'
 
-        - task: Npm@1
-          displayName: 'Test Angular'
-          inputs:
-            command: custom
-            customCommand: run test -- --watch=false --code-coverage
-            workingDirectory: './yourepic'
+        - script: run test -- --watch=false --code-coverage
+          displayName: 'Tests'
+          workingDirectory: './yourepic'
         - task: PublishCodeCoverageResults@1
           displayName: 'Publish code coverage Angular results'
           condition: succeededOrFailed()
