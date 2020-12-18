@@ -73,7 +73,7 @@ stages:
           condition: succeededOrFailed()
           inputs:
             codeCoverageTool: Cobertura
-            summaryFileLocation: '$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml'
+            summaryFileLocation: 'yourepic/coverage/cobertura-coverage.xml'
             failIfCoverageEmpty: true   
         - task: SonarCloudAnalyze@1
         - task: SonarCloudPublish@1
