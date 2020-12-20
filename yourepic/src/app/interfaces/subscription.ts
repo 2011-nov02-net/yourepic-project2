@@ -1,7 +1,7 @@
 import User from './user'
 
 export default interface Subscription{
-    Publisher: User;
-    Subscriber: User;
-    HasNewContent: boolean;
+    publisher: User;
+    subscriber: User;
+    hasnewcontent: boolean;
 }

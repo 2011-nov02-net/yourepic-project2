@@ -1,7 +1,7 @@
 export default interface Chapter{
-    ID: number;
-    Title: string;
-    Date: Date;
-    Text: string;
-    EpicID: number;
+    id: number;
+    title: string;
+    date: Date;
+    text: string;
+    epicid: number;
 }

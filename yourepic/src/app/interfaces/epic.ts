@@ -1,15 +1,15 @@
 import Category from './category'
 import User from './user'
 export default interface Epic{
-    ID: number;
-    Title: string;
-    Author: User;
-    Date: Date;
-    DateCompleted: Date;
-    updateCompleted: boolean;
-    Categories: Category[];
-    ChapterCount: number;
-    CommentCount: number;
-    RatingCount: number;
-    AverageRating: number;
+    id: number;
+    title: string;
+    author: User;
+    date: Date;
+    datecompleted: Date;
+    updatecompleted: boolean;
+    categories: Category[];
+    chaptercount: number;
+    commentcount: number;
+    ratingcount: number;
+    averagerating: number;
 }

@@ -1,8 +1,8 @@
 export default interface Comment{
-    ID: number;
-    CommenterName: string;    
-    CommenterID: number;
-    CommentContent: string;
-    DateOfComment: Date;
-    ReplyToComment: number;
+    id: number;
+    commentername: string;    
+    commenterid: number;
+    commentcontent: string;
+    dateofcomment: Date;
+    replytocomment: number;
 }

@@ -1,7 +1,7 @@
 export default interface Rating{
-    ID: number;
-    RaterID: number;
-    EpicID: number;
-    Rater: string;
-    RatingNumber: number;
+    id: number;
+    raterid: number;
+    epicid: number;
+    rater: string;
+    ratingnumber: number;
 }
