@@ -14,4 +14,11 @@ export class CategoryService {
     return this.http.get<Category[]>(`${this.baseUrl}/categories`)
     .toPromise();
   }
+  getCategoryByName(name:string): Promise<Category[]>{
+    return this.http.get<Category[]>(`${this.baseUrl}/categories/${name}`)
+    .toPromise();
+  }
+  categorizeEpic(categories:Category[], epicID:number){
+    return this.http.post(`${this.baseUrl}/categories/epic/${epicID}`, categories);
+  }
 }
