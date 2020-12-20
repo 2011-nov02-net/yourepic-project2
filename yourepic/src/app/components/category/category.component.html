@@ -1,0 +1,13 @@
+<div *ngIf="categories; else noData">
+  <div *ngIf="categories.length === 0">
+    There are no categories!
+  </div>
+  <li *ngFor="let category of categories">
+    {{category.name}}
+  </li>
+</div>
+<ng-template #noData>
+  <div>
+    ...
+  </div>
+</ng-template>
