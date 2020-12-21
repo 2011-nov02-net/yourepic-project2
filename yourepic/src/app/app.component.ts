@@ -11,8 +11,7 @@ import { CategoryService } from './services/category.service';
 export class AppComponent implements OnInit {
   isAuthenticated = false;
 
-  constructor(private oktaAuth: OktaAuthService,
-    private categoryService: CategoryService) {
+  constructor(private oktaAuth: OktaAuthService) {
     this.oktaAuth.$authenticationState.subscribe((isAuthenticated) => 
     this.updateAuthState(isAuthenticated));
   }
@@ -27,7 +26,6 @@ export class AppComponent implements OnInit {
     this.isAuthenticated = isAuthenticated;
     if (isAuthenticated) {
       this.oktaAuth.getUser().then(console.log);
-      this.categoryService.getCategories().then(console.log)
     }
   }
 

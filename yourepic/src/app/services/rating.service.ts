@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import Rating from '../interfaces/rating';
 import { Observable } from 'rxjs';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RatingService {
   private baseUrl = `${environment.baseUrl}/ratings`;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getRatingById(id: number): Observable<Rating> {
     return this.http.get<Rating>(`${this.baseUrl}/${id}`)

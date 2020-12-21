@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import Comment from '../interfaces/category';
 import { Observable } from 'rxjs';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 export class CommentService {
   private baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getCommentsForEpicId(epicId: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.baseUrl}/comments/${epicId}`)
