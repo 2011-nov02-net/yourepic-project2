@@ -12,11 +12,11 @@ export class CategoryService {
   constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getCategories(): Promise<Category[]> {
-    const accesToken = this.oktaAuth.getAccessToken();
+    const accessToken = this.oktaAuth.getAccessToken();
     const headers = {
-      Authorization: 'Bearer '+accesToken,
-      Accept: 'aplication/json'
-    }
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
     return this.http.get<Category[]>(`${this.baseUrl}/categories`, {headers: headers})
       .toPromise();
   }

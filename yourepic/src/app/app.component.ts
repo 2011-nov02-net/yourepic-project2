@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular'
+import { CategoryService } from './services/category.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { OktaAuthService } from '@okta/okta-angular'
 export class AppComponent implements OnInit {
   isAuthenticated = false;
 
-  constructor(private oktaAuth: OktaAuthService) {
+  constructor(private oktaAuth: OktaAuthService,
+    private categoryService: CategoryService) {
     this.oktaAuth.$authenticationState.subscribe((isAuthenticated) => 
     this.updateAuthState(isAuthenticated));
   }
@@ -25,6 +27,7 @@ export class AppComponent implements OnInit {
     this.isAuthenticated = isAuthenticated;
     if (isAuthenticated) {
       this.oktaAuth.getUser().then(console.log);
+      this.categoryService.getCategories().then(console.log)
     }
   }
 
