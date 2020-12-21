@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { OktaAuthModule, OktaCallbackComponent, OKTA_CONFIG } from '@okta/okta-angular';
 import { CategoryComponent } from './components/category/category.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -26,7 +28,9 @@ const config = {
     AppRoutingModule,
     OktaAuthModule, 
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatListModule
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: config}],
   bootstrap: [AppComponent]
