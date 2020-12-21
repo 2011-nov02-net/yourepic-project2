@@ -5,12 +5,13 @@ import Epic from '../interfaces/epic';
 import Chapter from '../interfaces/chapter';
 import { Observable } from 'rxjs';
 import Rating from '../interfaces/rating';
+import { OktaAuthService } from '@okta/okta-angular';
 @Injectable({
   providedIn: 'root'
 })
 export class EpicService {
   private baseUrl = `${environment.baseUrl}/epics`;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getAllEpics(title: string | null, category: string | null): Observable<Epic[]> {
     return this.http.get<Epic[]>(`${this.baseUrl}?title=${title}?category=${category}`)

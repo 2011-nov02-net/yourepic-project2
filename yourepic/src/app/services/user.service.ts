@@ -4,13 +4,14 @@ import { environment } from '../../environments/environment'
 import User from '../interfaces/user';
 import { Observable } from 'rxjs';
 import Epic from '../interfaces/epic';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RatingService {
+export class UserService {
   private baseUrl = `${environment.baseUrl}/users`;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}`)

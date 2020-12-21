@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
 import Subscription from '../interfaces/subscription';
 import { Observable } from 'rxjs';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RatingService {
+export class SubscriptionService {
   private baseUrl = `${environment.baseUrl}/subscriptions`;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getSubscriptionsForUser(id:number): Observable<Subscription[]>{
     return this.http.get<Subscription[]>(`${this.baseUrl}/${id}`)

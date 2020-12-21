@@ -2,9 +2,9 @@
   <div *ngIf="categories.length === 0">
     There are no categories!
   </div>
-  <li *ngFor="let category of categories">
-    {{category.name}}
-  </li>
+  <mat-list *ngFor="let category of categories">
+    <mat-list-item>{{category.name}}</mat-list-item>
+  </mat-list>
 </div>
 <ng-template #noData>
   <div>
