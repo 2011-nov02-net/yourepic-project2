@@ -16,12 +16,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger
+    
     this.oktaAuth.isAuthenticated().then((isAuthenticated) => this.updateAuthState(isAuthenticated));
   }
   
   updateAuthState(isAuthenticated: boolean) {
-    debugger
+    
     this.isAuthenticated = isAuthenticated;
     if (isAuthenticated) {
       this.oktaAuth.getUser().then(console.log);
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    debugger
+    
     this.oktaAuth.signOut();
   }
   title = 'yourepic';

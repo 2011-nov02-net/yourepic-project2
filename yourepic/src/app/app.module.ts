@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
 import { OktaAuthModule, OktaCallbackComponent, OKTA_CONFIG } from '@okta/okta-angular';
+import { CategoryComponent } from './components/category/category.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -14,10 +15,6 @@ const config = {
   scopes: ['openid'],
   postLogoutRedirectUri: window.location.origin,
 };
-=======
-import { CategoryComponent } from './components/category/category.component';
-import { HttpClientModule } from '@angular/common/http';
->>>>>>> 7fbaf191a303342d115dbdefd7bb85b9d3408198
 
 @NgModule({
   declarations: [
@@ -25,14 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
     CategoryComponent
   ],
   imports: [
-<<<<<<< HEAD
     BrowserModule,
     AppRoutingModule,
-    OktaAuthModule,
-=======
-    BrowserModule,    
+    OktaAuthModule, 
     HttpClientModule,
->>>>>>> 7fbaf191a303342d115dbdefd7bb85b9d3408198
     AppRoutingModule
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: config}],
