@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class RatingService {
+export class RoleService {
   private baseUrl = `${environment.baseUrl}/roles`;
   constructor(private http: HttpClient) { }
 
