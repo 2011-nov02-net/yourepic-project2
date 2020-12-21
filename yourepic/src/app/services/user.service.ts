@@ -8,7 +8,7 @@ import Epic from '../interfaces/epic';
 @Injectable({
   providedIn: 'root'
 })
-export class RatingService {
+export class UserService {
   private baseUrl = `${environment.baseUrl}/users`;
   constructor(private http: HttpClient) { }
 
