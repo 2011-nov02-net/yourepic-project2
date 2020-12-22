@@ -1,1 +1,4 @@
-<p>login works!</p>
+
+<button type="button" class="btn btn-outline-primary btn-rounded" mdbWavesEffect *ngIf="!isAuthenticated" (click)="login()">Login</button>
+
+<button type="button" class="btn btn-outline-danger btn-rounded" mdbWavesEffect *ngIf="isAuthenticated" (click)="logout()">Logout</button>

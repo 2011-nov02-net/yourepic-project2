@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @Output() updatedAuth = new EventEmitter();
+  isAuthenticated = false;
 
-  ngOnInit(): void {
+  constructor(private oktaAuth: OktaAuthService) {
+    this.oktaAuth.$authenticationState.subscribe((isAuthenticated) => 
+    this.updateAuthState(isAuthenticated));
   }
 
+  ngOnInit(): void {
+    
+    this.oktaAuth.isAuthenticated().then((isAuthenticated) => this.updateAuthState(isAuthenticated));
+  }
+  
+  updateAuthState(isAuthenticated: boolean) {
+    
+    this.isAuthenticated = isAuthenticated;
+    this.updatedAuth.emit(isAuthenticated)
+  }
+
+  login() {
+    this.oktaAuth.signInWithRedirect();
+  }
+
+  logout() {
+    this.oktaAuth.signOut();
+  }
 }

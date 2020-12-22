@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { EntryComponent } from './components/entry/entry.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { EpicComponent } from './components/epic/epic.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -28,7 +29,8 @@ const config = {
     NavigationComponent,
     HomeComponent,
     LoginComponent,
-    EntryComponent
+    EntryComponent,
+    EpicComponent
   ],
   imports: [
     BrowserModule,

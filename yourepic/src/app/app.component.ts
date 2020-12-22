@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { OktaAuthService } from '@okta/okta-angular'
 import { CategoryService } from './services/category.service';
 
@@ -11,18 +10,14 @@ import { CategoryService } from './services/category.service';
 
 export class AppComponent implements OnInit {
   isAuthenticated = false;
-  name: any;
 
-  constructor(private oktaAuth: OktaAuthService,
-    private route: ActivatedRoute) {
+  constructor(private oktaAuth: OktaAuthService) {
     this.oktaAuth.$authenticationState.subscribe((isAuthenticated) => 
     this.updateAuthState(isAuthenticated));
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.name = params['name'];
-    });
+    
     this.oktaAuth.isAuthenticated().then((isAuthenticated) => this.updateAuthState(isAuthenticated));
   }
   
