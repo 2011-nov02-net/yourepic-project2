@@ -12,10 +12,9 @@ const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent},
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'epic', component: EpicComponent},
   { path: 'subscriptions', component: SubscriptionComponent},
   { path: 'epic', component: EpicComponent},
-  {path: '', component: PubHomeComponent}
+  { path: '', component: PubHomeComponent}
 ];
 
 @NgModule({
