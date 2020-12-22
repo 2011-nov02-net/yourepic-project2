@@ -20,7 +20,8 @@ export class EpicComponent implements OnInit {
       .then(items=> {
           this.epics = items;
           this.selectedEpic = items[0]
-      });
+      }).catch((error) => { console.error(error); });
+    
   }
 
   onSelect(epic:Epic): void{
