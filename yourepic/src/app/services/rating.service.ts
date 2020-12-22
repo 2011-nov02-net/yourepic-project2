@@ -10,7 +10,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 export class RatingService {
   private baseUrl = `${environment.baseUrl}/ratings`;
-  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
+  constructor(private http: HttpClient) { }
 
   getRatingById(id: number): Observable<Rating> {
     return this.http.get<Rating>(`${this.baseUrl}/${id}`)

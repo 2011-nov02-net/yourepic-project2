@@ -11,7 +11,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 export class ChapterService {
   private baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
+  constructor(private http: HttpClient) { }
 
   getChapterById(id: number): Observable<Chapter> {
     return this.http.get<Chapter>(`${this.baseUrl}/chapters/${id}`)

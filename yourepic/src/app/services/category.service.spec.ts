@@ -21,7 +21,6 @@ describe('CategoryService', () => {
     TestBed.configureTestingModule({
       providers: [
         { provide: HttpClient, useValue:  fakeHttP},
-        { provide: OktaAuthService, useValue: fakeAuthService },
       ],
     });
     service = TestBed.inject(CategoryService);

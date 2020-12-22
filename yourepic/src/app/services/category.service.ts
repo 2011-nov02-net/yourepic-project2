@@ -9,15 +9,10 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 export class CategoryService {
   private baseUrl = environment.baseUrl;
-  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
+  constructor(private http: HttpClient) { }
 
   getCategories(): Promise<Category[]> {
-    const accessToken = this.oktaAuth.getAccessToken();
-    const headers = {
-      Authorization: 'Bearer ' + accessToken,
-      Accept: 'application/json',
-    };
-    return this.http.get<Category[]>(`${this.baseUrl}/categories`, {headers: headers})
+    return this.http.get<Category[]>(`${this.baseUrl}/categories`)
       .toPromise();
   }
   getCategoryByName(name: string): Promise<Category[]> {

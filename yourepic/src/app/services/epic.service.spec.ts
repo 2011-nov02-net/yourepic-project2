@@ -11,7 +11,6 @@ describe('EpicService', () => {
     TestBed.configureTestingModule({
       providers: [
         { provide: HttpClient, useValue: {} },
-        { provide: OktaAuthService, useValue: {} },
       ]
     });
     service = TestBed.inject(EpicService);

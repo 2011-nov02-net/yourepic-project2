@@ -11,7 +11,6 @@ describe('CommentService', () => {
     TestBed.configureTestingModule({
       providers: [
         { provide: HttpClient, useValue: {} },
-        { provide: OktaAuthService, useValue: {} },
       ]
     });
     service = TestBed.inject(CommentService);

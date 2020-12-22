@@ -10,7 +10,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 export class SubscriptionService {
   private baseUrl = `${environment.baseUrl}/subscriptions`;
-  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
+  constructor(private http: HttpClient) { }
 
   getSubscriptionsForUser(id:number): Observable<Subscription[]>{
     return this.http.get<Subscription[]>(`${this.baseUrl}/${id}`)
