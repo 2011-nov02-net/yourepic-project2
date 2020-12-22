@@ -14,26 +14,57 @@ export class UserService {
   constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.baseUrl}`)
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.get<User[]>(`${this.baseUrl}`, { headers: headers })
   }
 
   createUser(user: User){
-    return this.http.post(`${this.baseUrl}`, user)
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.post(`${this.baseUrl}`, user, { headers: headers })
   }
 
   getUserById(id:number): Observable<User>{
-    return this.http.get<User>(`${this.baseUrl}/${id}`)
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.get<User>(`${this.baseUrl}/${id}`, { headers: headers })
   }
 
   updateUser(id:number, user:User): Observable<User>{
-    return this.http.put<User>(`${this.baseUrl}/${id}`, user)
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.put<User>(`${this.baseUrl}/${id}`, user, { headers: headers })
   }
 
   deleteUser(id:number): Observable<User>{
-    return this.http.delete<User>(`${this.baseUrl}/${id}`)
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.delete<User>(`${this.baseUrl}/${id}`, { headers: headers })
   }
 
-  getPublishersEpics(id:number):Observable<Epic[]>{
-    return this.http.get<Epic[]>(`${this.baseUrl}/${id}`)
+  getPublishersEpics(id:number):Promise<Epic[]>{
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: `Bearer ${accessToken}`,
+      Accept: 'application/json',
+    };
+    return this.http.get<Epic[]>(`${this.baseUrl}/${id}/epics`, { headers: headers })
+    .toPromise()
   }
 }

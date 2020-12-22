@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { EpicComponent } from './components/epic/epic.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { PubHomeComponent } from './components/publisher-components/pub-home/pub-home.component';
 
 const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent},
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent},
-  {path: 'epic', component: EpicComponent}
+  {path: 'epic', component: EpicComponent},
+  {path: '', component: PubHomeComponent}
 ];
 
 @NgModule({

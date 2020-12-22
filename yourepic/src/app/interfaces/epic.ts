@@ -5,11 +5,11 @@ export default interface Epic{
     title: string;
     author: User;
     date: Date;
-    datecompleted: Date;
-    updatecompleted: boolean;
+    dateCompleted: Date;
+    updateCompleted: boolean;
     categories: Category[];
-    chaptercount: number;
-    commentcount: number;
-    ratingcount: number;
-    averagerating: number;
+    chapterCount: number;
+    commentCount: number;
+    ratingCount: number;
+    averageRating: number;
 }
