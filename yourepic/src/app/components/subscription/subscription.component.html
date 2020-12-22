@@ -1,0 +1,20 @@
+<div *ngIf="subscriptions">
+    <div *ngIf="subscriptions.length === 0">
+        This user is not subscribed to any publishers yet.
+    </div>
+    <thead>
+        <tr>
+            <th>Publisher Id </th>
+            <th>Publisher Name </th>
+            <th>New Content?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let subscription of subscriptions">
+            <td>{{subscription.publisher.id}}</td>
+            <td>{{subscription.publisher.name}}</td>
+            <td *ngIf="subscription.hasNewContent">This publisher has new content</td>
+        </tr>
+    </tbody>
+</div>
+
