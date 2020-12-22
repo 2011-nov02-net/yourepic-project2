@@ -8,10 +8,9 @@ import { OktaAuthService } from '@okta/okta-angular';
 @Injectable({
   providedIn: 'root'
 })
-
 export class RoleService {
   private baseUrl = `${environment.baseUrl}/roles`;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getRoles(): Observable<Role[]>{
     return this.http.get<Role[]>(`${this.baseUrl}`)

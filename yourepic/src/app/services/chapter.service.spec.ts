@@ -11,6 +11,7 @@ describe('ChapterService', () => {
     TestBed.configureTestingModule({
       providers: [
       { provide: HttpClient, useValue: {} },
+      { provide: OktaAuthService, useValue: {} },
     ]
   });
     service = TestBed.inject(ChapterService);

@@ -11,7 +11,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 export class CommentService {
   private baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getCommentsForEpicId(epicId: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.baseUrl}/comments/${epicId}`)

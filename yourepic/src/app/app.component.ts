@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular'
+import User from './interfaces/user';
 import { CategoryService } from './services/category.service';
+import { UserinfoService } from './services/userinfo.service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +13,20 @@ import { CategoryService } from './services/category.service';
 export class AppComponent implements OnInit {
   isAuthenticated = false;
 
-  constructor(private oktaAuth: OktaAuthService) {
+  constructor(private oktaAuth: OktaAuthService, private userInfoService: UserinfoService,) {
     this.oktaAuth.$authenticationState.subscribe((isAuthenticated) => 
     this.updateAuthState(isAuthenticated));
   }
 
-  ngOnInit(): void {
+  runUserService(): void {
     
+    var email = this.userInfoService.getUserEmail().subscribe(user => {
+      console.log(user.firstName);
+    });
+    console.log(email);
+  }
+
+  ngOnInit(): void {
     this.oktaAuth.isAuthenticated().then((isAuthenticated) => this.updateAuthState(isAuthenticated));
   }
   
