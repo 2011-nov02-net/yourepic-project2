@@ -13,6 +13,7 @@ import { EntryComponent } from './components/entry/entry.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { EpicComponent } from './components/epic/epic.component';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { PubHomeComponent } from './components/publisher-components/pub-home/pub-home.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -32,7 +33,8 @@ const config = {
     LoginComponent,
     EntryComponent,
     EpicComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    PubHomeComponent
   ],
   imports: [
     BrowserModule,

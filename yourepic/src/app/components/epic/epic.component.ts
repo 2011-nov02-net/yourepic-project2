@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import Epic from 'src/app/interfaces/epic';
+import  EpicService  from 'src/app/services/epic.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-epic',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EpicComponent implements OnInit {
 
-  constructor() { }
+  epics: Epic[] | null = null;
+  selectedEpic!: Epic;
+
+  constructor(private epicService: EpicService, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getPublishersEpics(2)
+      .then(items=> {
+          this.epics = items;
+          this.selectedEpic = items[0]
+      });
   }
 
+  onSelect(epic:Epic): void{
+    this.selectedEpic = epic
+  }
 }
