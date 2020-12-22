@@ -19,7 +19,7 @@ export class EpicComponent implements OnInit {
     this.userService.getPublishersEpics(2)
       .then(items=> {
           this.epics = items;
-          this.selectedEpic = items[0]
+          this.selectedEpic = items[0];
       });
   }
 

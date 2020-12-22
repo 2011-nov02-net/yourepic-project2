@@ -15,7 +15,7 @@ export class SubscriptionComponent implements OnInit {
   constructor(private subscriptionService : SubscriptionService) {}
 
   ngOnInit(): void {
-    this.subscriptionService.getSubscriptionsForUser(2)
+    this.subscriptionService.getSubscriptionsForUser(4)
     .toPromise()
     .then(items => {
       this.subscriptions = items
