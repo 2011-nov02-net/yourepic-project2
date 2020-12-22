@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent},
   { path: 'home', component: HomeComponent, canActivate: [OktaAuthGuard]},
   { path: 'login', component: LoginComponent},
-  {path: 'epic', component: EpicComponent, canActivate: [OktaAuthGuard]}
+  { path: 'epic', component: EpicComponent, canActivate: [OktaAuthGuard]}
 ];
 
 @NgModule({
