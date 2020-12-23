@@ -18,6 +18,7 @@ export class ChaptersSidebarComponent implements OnInit {
   constructor(private epicService: EpicService, private route: ActivatedRoute) { }
  
   ngOnInit(): void {
+    debugger;
    this.getChapters();
   }
 
