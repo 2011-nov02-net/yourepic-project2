@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular'
 import User from './interfaces/user';
 import { UserService } from './services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
 
   user!: string
 
-  constructor(private oktaAuth: OktaAuthService, private userService: UserService) {
+  constructor(private router: Router, private oktaAuth: OktaAuthService, private userService: UserService) {
     this.oktaAuth.$authenticationState.subscribe((isAuthenticated) =>
       this.updateAuthState(isAuthenticated));
   }
@@ -38,11 +39,21 @@ export class AppComponent implements OnInit {
     });
   }
 
-  updateRole(role: string){
-    role === "Publisher" ? this.isPublisher = true : this.isPublisher = false
-    role === "Reader" ? this.isReader = true : this.isReader = false
-    role === "unassigned" ? this.isUnassigned = true : this.isUnassigned = false
+  updateRole(role: string) {
+    if (role === "Publisher") {
+      this.isPublisher = true
+      this.router.navigate(['dashboard']);
+    }
+    if (role === 'Reader') {
+      this.isReader = true
+      this.router.navigate(['myhome']);
+    }
+    if (role === "unassigned") {
+      this.isUnassigned = true
+      this.router.navigate(['']);
+    }
   }
+  
   updateAuthState(isAuthenticated: boolean) {
     this.isAuthenticated = isAuthenticated;
   }

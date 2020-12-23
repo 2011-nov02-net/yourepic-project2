@@ -19,6 +19,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ReaderComponent } from './components/reader-components/reader/reader.component';
 import { PubNavComponent } from './components/publisher-components/pub-nav/pub-nav.component';
 import { ReadNavComponent } from './components/reader-components/read-nav/read-nav.component';
+import { FeaturedComponent } from './components/reader-components/featured/featured.component';
+import { ReadEpicListComponent } from './components/reader-components/read-epic-list/read-epic-list.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -44,7 +46,9 @@ const config = {
     NavigationComponent,
     ReaderComponent,
     PubNavComponent,
-    ReadNavComponent
+    ReadNavComponent,
+    FeaturedComponent,
+    ReadEpicListComponent
   ],
   imports: [
     BrowserModule,

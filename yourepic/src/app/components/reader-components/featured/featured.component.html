@@ -1,0 +1,16 @@
+<h2>{{featuredEpic.title}}</h2>
+<div class="row">
+  <div class="container col">
+    <small>Published: {{featuredEpic.date}}</small>
+    <h3>Author: {{featuredEpic.author.name}}</h3>
+  </div>
+  <div class="container col">
+    <span *ngFor="let category of featuredEpic.categories">
+      {{category.name}} |
+    </span>
+  </div>
+</div>
+<div class="container">
+  <p>{{featuredEpic.concept}}</p>
+</div>
+<small>Date Completed: {{featuredEpic.dateCompleted}}</small>
