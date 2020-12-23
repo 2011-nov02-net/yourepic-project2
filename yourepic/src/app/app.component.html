@@ -1,3 +1,2 @@
-<app-navigation></app-navigation>
-<router-outlet>
-</router-outlet>
+<app-entry *ngIf="!isAuthenticated"></app-entry>
+<router-outlet></router-outlet>

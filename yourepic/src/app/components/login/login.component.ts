@@ -8,7 +8,6 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 export class LoginComponent implements OnInit {
 
-  @Output() updatedAuth = new EventEmitter();
   isAuthenticated = false;
 
   constructor(private oktaAuth: OktaAuthService) {
@@ -17,14 +16,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
     this.oktaAuth.isAuthenticated().then((isAuthenticated) => this.updateAuthState(isAuthenticated));
   }
   
   updateAuthState(isAuthenticated: boolean) {
     
     this.isAuthenticated = isAuthenticated;
-    this.updatedAuth.emit(isAuthenticated)
   }
 
   login() {
