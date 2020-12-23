@@ -37,3 +37,13 @@
     margin-left: 180px; /* Same as the width of the sidebar */
     padding: 0px 10px;
   }
+
+  .btn-primary {
+    background-color: #000000;
+    border-color: #000000;
+    margin: 15px;
+}
+.btn-primary:hover {
+   background-color: #808080;
+   border-color: #808080;
+}

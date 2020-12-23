@@ -8,7 +8,9 @@
 
 
  <div class="container" *ngIf="viewChapter" id="main">
-    <div><h2 class="primary-heading">Epic Title Here</h2><a routerLink = "/addChapter/{{epicID}}">(Add Chapter)</a></div>
+    <div><h2 class="primary-heading">Epic Title Here</h2>
+      <button routerLink="/addChapter/{{epicID}}" class="btn btn-primary">Add Chapter (+)</button>
+    <button routerLink="/categories/{{epicID}}" class="btn btn-primary">Edit Epic Categories</button></div>
     <mdb-card>
       <mdb-card-body>
   

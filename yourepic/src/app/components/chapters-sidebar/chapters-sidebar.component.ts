@@ -19,7 +19,7 @@ export class ChaptersSidebarComponent implements OnInit {
  
   ngOnInit(): void {
     debugger;
-   this.getChapters();
+    this.getChapters();
   }
 
   getChapters(): void {
