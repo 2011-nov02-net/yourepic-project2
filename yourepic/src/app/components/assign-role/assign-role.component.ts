@@ -26,8 +26,6 @@ export class AssignRoleComponent implements OnInit {
             this.userService.updateUser(user.id, user)
           });
         })
-      
-    
   }
 
   assignPublisher() {
@@ -37,8 +35,6 @@ export class AssignRoleComponent implements OnInit {
             this.userService.updateUser(user.id, user)
           });
         })
-      
-    
   }
 
   updateAuthState(isAuthenticated: boolean) {

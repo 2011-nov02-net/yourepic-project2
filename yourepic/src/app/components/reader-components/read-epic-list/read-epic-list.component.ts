@@ -53,7 +53,6 @@ export class ReadEpicListComponent implements OnInit {
   }
 
   searchItems() {
-    console.log(this.searchText)
     const prev = this.mdbTable.getDataSource();
     if (!this.searchText) {
       this.mdbTable.setDataSource(this.previous);
