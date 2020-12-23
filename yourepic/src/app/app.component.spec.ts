@@ -5,6 +5,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 import { NEVER } from 'rxjs';
 import { AppComponent } from './app.component';
 import { CategoryService } from './services/category.service';
+import { UserService } from './services/user.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -14,11 +15,14 @@ describe('AppComponent', () => {
         return Promise.resolve(false);
       },
     };
-
+    const fakeUserService = {}
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
-      ],providers: [{ provide: OktaAuthService, useValue: fakeAuthService },
+      ], 
+      providers: [{ provide: OktaAuthService, useValue: fakeAuthService },
+      { provide: UserService, useValue: fakeUserService },
+
       ],
       declarations: [
         AppComponent
