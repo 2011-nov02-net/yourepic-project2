@@ -5,10 +5,13 @@
   <links>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active waves-light" mdbWavesEffect>
-        <a routerLink="/home" class="nav-link">Home</a>
+        <a routerLink="/myhome" class="nav-link">Home</a>
       </li>
       <li class="nav-item waves-light" mdbWavesEffect>
         <a routerLink="/epic" class="nav-link">My Subscriptions</a>
+      </li>      
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a routerLink="/browse" class="nav-link">Browse</a>
       </li>
     </ul>
   </links>
@@ -16,7 +19,7 @@
     <ul class="navbar-nav ml-auto">
       <div class="container">
         <form class="form waves-light" (submit)="showResults()">
-          <input type="text" [formControl]="search">
+          <input type="text" [formControl]="search" placeholder="Search">
         </form>
       </div>
       <app-login></app-login>

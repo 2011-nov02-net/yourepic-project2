@@ -22,6 +22,7 @@ import { ReadNavComponent } from './components/reader-components/read-nav/read-n
 import { FeaturedComponent } from './components/reader-components/featured/featured.component';
 import { ReadEpicListComponent } from './components/reader-components/read-epic-list/read-epic-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RatingModule } from 'ng-starrating';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -58,6 +59,7 @@ const config = {
     HttpClientModule,
     AppRoutingModule,     
     FormsModule,
+    RatingModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot()
   ],

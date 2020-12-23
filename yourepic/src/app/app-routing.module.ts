@@ -7,6 +7,7 @@ import { EpicComponent } from './components/epic/epic.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PubHomeComponent } from './components/publisher-components/pub-home/pub-home.component'
+import { ReadEpicListComponent } from './components/reader-components/read-epic-list/read-epic-list.component';
 import { ReaderComponent } from './components/reader-components/reader/reader.component';
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'epicChapters/:id', component: ChaptersSidebarComponent},
   { path: 'createEpic', component: CreateEpicComponent},
-  {path: 'dashboard', component: PubHomeComponent}
+  {path: 'dashboard', component: PubHomeComponent},
+  { path:'browse', component: ReadEpicListComponent}
 ];
 
 @NgModule({

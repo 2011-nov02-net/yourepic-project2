@@ -18,7 +18,7 @@ export class ReadEpicListComponent implements OnInit {
   previous: any = [];
 
   epics!: Epic[]
-  headElements = ['Title', 'Author', 'Categories', 'Date Created']
+  headElements = ['Title', 'Author', 'Categories', 'Date Created', 'Rating']
   selectedEpic!: Epic
   selected = false;
   searchText: string = '';

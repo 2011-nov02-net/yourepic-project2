@@ -42,18 +42,24 @@ export class AppComponent implements OnInit {
   updateRole(role: string) {
     if (role === "Publisher") {
       this.isPublisher = true
-      this.router.navigate(['dashboard']);
+      if (this.router.url === '/') {
+        this.router.navigate(['dashboard']);
+      }
     }
     if (role === 'Reader') {
       this.isReader = true
-      this.router.navigate(['myhome']);
+      if (this.router.url === '/') {
+        this.router.navigate(['myhome']);
+      }
     }
     if (role === "unassigned") {
       this.isUnassigned = true
-      this.router.navigate(['']);
+      if (this.router.url === '/') {
+        this.router.navigate(['']);
+      }
     }
   }
-  
+
   updateAuthState(isAuthenticated: boolean) {
     this.isAuthenticated = isAuthenticated;
   }
