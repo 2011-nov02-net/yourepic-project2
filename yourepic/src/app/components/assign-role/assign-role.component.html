@@ -1,0 +1,41 @@
+<app-entry></app-entry>
+<div class="container">
+  <mdb-card>
+    <mdb-card-body>
+      <div class="container">
+        <!--Title-->
+        <mdb-card-title>
+          <h1>Choose your Role</h1>
+        </mdb-card-title>
+
+        <!--Text-->
+        <mdb-card-text>
+          <p>Before we can show you the content you must pick a role.</p>
+          <small><span style="color: red;">This cannot be changed later!</span></small>
+        </mdb-card-text>
+      </div>
+
+      <div class="row">
+        <div class="container col">
+          <h2>Reader</h2>
+          <p>As a Reader you can:</p>
+          <ul>
+            <li>Browse our Epic Collection</li>
+            <li>Read your favorite Epics</li>
+          </ul>
+          <a href="/" mdbBtn color="primary" mdbWavesEffect (click)="assignReader()">I'm a Reader!</a>
+        </div>
+        <div class="container col">
+          <h2>Publisher</h2>
+          <p>As a Publisher you can:</p>
+          <ul>
+            <li>Create Epics</li>
+            <li>Add Chapters when you want to</li>
+            <li>Manage Your Epics</li>
+          </ul>
+          <a href="/dashboard" mdbBtn color="primary" mdbWavesEffect (click)="assignPublisher()">I'm a Publisher!</a>
+        </div>
+      </div>
+    </mdb-card-body>
+  </mdb-card>
+</div>

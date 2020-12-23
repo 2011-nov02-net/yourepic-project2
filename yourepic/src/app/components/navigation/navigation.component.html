@@ -1,24 +1,36 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black ie-nav" [containerInside]="false">
-  <mdb-navbar-brand>
-    <a class="logo navbar-brand" href="#"><strong>YourEpic</strong></a>
-  </mdb-navbar-brand>
-  <links >
-    <ul *ngIf="auth" class="navbar-nav mr-auto">
-      <li class="nav-item active waves-light" mdbWavesEffect>
-        <a routerLink="/home" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item waves-light" mdbWavesEffect>
-        <a routerLink="/epic" class="nav-link">My Epics</a>
-      </li>
-    </ul>
-    <ul *ngIf="!auth">
-        <li>Please log in</li>
-    </ul>
-    <ul class="navbar-nav nav-flex-icons">
-      <li>
-        <span style="color: white;">{{user}}</span>
-        <app-login (updatedAuth)="updateAuth($event)"></app-login>
-      </li>
-    </ul>
-  </links>
-</mdb-navbar>
+    <mdb-navbar-brand>
+      <a class="logo navbar-brand" href="#"><strong>YourEpic</strong></a>
+    </mdb-navbar-brand>
+    <links *ngIf="isPublisher">
+      <ul *ngIf="isAuthenticated" class="navbar-nav ml-auto">
+        <li class="nav-item active waves-light" mdbWavesEffect>
+          <a routerLink="/home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a routerLink="/epic" class="nav-link">My Epics</a>
+        </li>
+      </ul> 
+    </links>      
+    <links *ngIf="isReader">
+      <ul *ngIf="isAuthenticated" class="navbar-nav ml-auto">
+        <li class="nav-item active waves-light" mdbWavesEffect>
+          <a routerLink="/home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a routerLink="/epic" class="nav-link">My Subscriptions</a>
+        </li>
+      </ul> 
+    </links>
+          
+    <links *ngIf="isUnassigned">
+      <ul *ngIf="isAuthenticated" class="navbar-nav ml-auto">
+        <li class="nav-item active waves-light" mdbWavesEffect>
+          <a routerLink="/home" class="nav-link">Home</a>
+        </li>
+      </ul> 
+    </links>
+      <ul class="navbar-nav ml-auto">
+        <app-login></app-login>
+      </ul>
+  </mdb-navbar>

@@ -1,3 +1,4 @@
+
 <div class="container" *ngIf="selectedEpic">
   <h2 class="primary-heading">Most Recent Epic</h2>
   <mdb-card>
@@ -11,7 +12,7 @@
       <!--Text-->
       <mdb-card-text>
         <ul class="list-group">
-          <li class="list-group-item"><span style="font-weight: bold;">Created:</span> {{selectedEpic.date}}</li>
+          <li class="list-group-item"><span style="font-weight: bold;">Created: </span>{{selectedEpic.date}}</li>
           <li class="list-group-item"><span style="font-weight: bold;">Categories: </span>
             <span *ngFor="let category of selectedEpic.categories">
               {{category.name}}
@@ -31,8 +32,7 @@
   </mdb-card>
 </div>
 
-<div class="container">
-  <h2>My Epics</h2>
+<div class="container">  <h2>My Epics</h2>
   <ul class="list-group">
     <li class="list-group-item" [class.selected]="epic === selectedEpic" (click)="onSelect(epic)"
       *ngFor="let epic of epics; index as i; first as isFirst">
