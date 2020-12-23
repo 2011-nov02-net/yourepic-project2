@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div *ngIf="isReader">
+  <app-reader></app-reader>
+</div>
+<div *ngIf="isUnassigned">
+  <app-assign-role *ngIf="isAuthenticated && isUnassigned"></app-assign-role>
+</div>
+<div *ngIf="isPublisher">
+  <app-pub-home></app-pub-home>
+</div>

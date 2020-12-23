@@ -1,2 +1,16 @@
+<app-pub-nav></app-pub-nav>
+
+
+<div>
+    <label>What is the Title of Your Epic? :
+      <input #title />
+    </label>
+    <label>What is Your Epic Going to be About? :
+        <input #concept />
+      </label>
+    <button (click)="add(title.value, concept.value); title.value='' ">
+      add
+    </button>
+</div>
 
 

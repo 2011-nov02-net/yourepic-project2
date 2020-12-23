@@ -12,4 +12,5 @@ export default interface Epic{
     commentCount: number;
     ratingCount: number;
     averageRating: number;
+    concept: string;
 }
