@@ -18,6 +18,7 @@ import { AssignRoleComponent } from './components/assign-role/assign-role.compon
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ReaderComponent } from './components/reader-components/reader/reader.component';
 import { PubNavComponent } from './components/publisher-components/pub-nav/pub-nav.component';
+import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -42,7 +43,8 @@ const config = {
     AssignRoleComponent,
     NavigationComponent,
     ReaderComponent,
-    PubNavComponent
+    PubNavComponent,
+    AddChapterComponent
   ],
   imports: [
     BrowserModule,

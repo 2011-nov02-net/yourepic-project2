@@ -1,16 +1,33 @@
 <app-pub-nav></app-pub-nav>
 
-
-<div>
-    <label>What is the Title of Your Epic? :
-      <input #title />
-    </label>
-    <label>What is Your Epic Going to be About? :
-        <input #concept />
-      </label>
-    <button (click)="add(title.value, concept.value); title.value='' ">
-      add
-    </button>
+<button (click)="goBack()" class="btn btn-primary">Go Back</button>
+<div id="centerDiv">
+    <h1>Epic Creation Wizard</h1>
 </div>
+<mdb-card>
+  <!--Card content-->
+  <mdb-card-body>
+    <!--Title-->
+    <mdb-card-title>
+      <h4>Epic Title: </h4>
+    </mdb-card-title>
+    <!--Text-->
+    <mdb-card-text> 
+      <input #title class="form-control" id="smallInput"/>
+    </mdb-card-text>
 
+    <mdb-card-title>
+      <h4>What is Your Epic About: </h4>
+    </mdb-card-title>
+    <!--Text-->
+    <mdb-card-text> 
+      <textarea #concept type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
+      
+    </mdb-card-text>
+
+    <div id="rightDiv">
+      <button (click)="add(title.value, concept.value)" class="btn btn-primary">Add Epic</button>
+    </div>
+  </mdb-card-body>
+</mdb-card>
 

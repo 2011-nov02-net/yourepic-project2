@@ -14,6 +14,7 @@ export class ChaptersSidebarComponent implements OnInit {
  
   chapters: Chapter[] | null = null;
   viewChapter!: Chapter;
+  epicID!: number;
   constructor(private epicService: EpicService, private route: ActivatedRoute) { }
  
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class ChaptersSidebarComponent implements OnInit {
 
   getChapters(): void {
     const id: number = this.route.snapshot.paramMap.get('id')! as unknown as number;
+    this.epicID = id;
     this.epicService.getChaptersForEpic(id)
         .then(items => { this.chapters = items; this.viewChapter = items[0]});
     }
