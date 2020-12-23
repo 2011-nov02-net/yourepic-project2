@@ -20,7 +20,7 @@ export class CreateEpicComponent implements OnInit {
 
   add(title: string, concept: string): void {
     this.oktaAuth.getUser().then(user => {
-      this.userService.getUserByEmail(user.userEmail).then(user => {
+      this.userService.getUserByEmail(user.userEmail).subscribe(user => {
         const author = { 
           name: user.name,
           role: user.role};
