@@ -15,10 +15,7 @@ export class FeaturedComponent implements OnInit {
 
   ngOnInit(): void {
     this.epicService.getFeaturedEpic().subscribe((epic)=>{
-      console.log(epic)
       this.featuredEpic = epic
     })
   }
-
-  
 }
