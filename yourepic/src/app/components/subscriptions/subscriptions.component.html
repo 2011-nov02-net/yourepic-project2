@@ -6,15 +6,13 @@
         <tr>
             <th>Publisher Name </th>
             <th></th>
+            <th></th>
         </tr>
-        <tr *ngFor="let subscription of subscriptions" (click)="onSelect(subscription)">
+        <tr *ngFor="let subscription of subscriptions">
             <td>{{subscription.publisher.name}}</td>
             <td *ngIf="subscription.hasNewContent">This publisher has new content!</td>
+            <td><a routerLink="/subepic/{{subscription.publisher.id}}">View Epics</a></td>
         </tr>
     </table>
 
-    <!--Do Something here to redirect to epic component-->
-    <ul *ngIf="selectedSub">
-        <li>you have clicked {{selectedSub.publisher.name}}</li>
-    </ul>
 </div>

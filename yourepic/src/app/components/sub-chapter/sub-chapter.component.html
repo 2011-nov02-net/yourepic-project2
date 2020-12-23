@@ -1,0 +1,29 @@
+<div class="sidenav">
+    <h1 id="sideBarHead">Chapters</h1>
+    <div *ngFor="let _chapter of chapters">
+        <li [class.selected]="_chapter === viewChapter" (click)="onSelect(_chapter)" ><a>{{_chapter.title}}</a></li>
+    </div>
+</div>
+
+
+
+ <div class="container" *ngIf="viewChapter" id="main">
+    <h2 class="primary-heading">Epic Title Here</h2>
+    <mdb-card>
+      <mdb-card-body>
+  
+        <!--Title-->
+        <mdb-card-title>
+          <h4>{{viewChapter.title | uppercase}}</h4>
+        </mdb-card-title>
+  
+        <!--Text-->
+        <mdb-card-text>
+          <ul class="list-group">
+            <li class="list-group-item"><span style="font-weight: bold;"></span> {{viewChapter.text}}</li>
+          </ul>
+        </mdb-card-text>
+  
+      </mdb-card-body>
+    </mdb-card>
+  </div>

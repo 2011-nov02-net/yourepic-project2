@@ -8,6 +8,8 @@ import { EpicComponent } from './components/epic/epic.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PubHomeComponent } from './components/publisher-components/pub-home/pub-home.component'
+import { SubChapterComponent } from './components/sub-chapter/sub-chapter.component';
+import { SubEpicComponent } from './components/sub-epic/sub-epic.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 
 const routes: Routes = [
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'epicChapters/:id', component: ChaptersSidebarComponent},
   { path: 'createEpic', component: CreateEpicComponent},
-  { path: 'subscriptions', component: SubscriptionsComponent}
+  { path: 'subscriptions', component: SubscriptionsComponent},
+  { path: 'subepic/:id', component: SubEpicComponent},
+  { path: 'subchapter/:id', component: SubChapterComponent}
 ];
 
 @NgModule({
