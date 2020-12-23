@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import User from 'src/app//interfaces/user'
 import Subscription from 'src/app/interfaces/subscription';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 import { UserService } from 'src/app/services/user.service'
@@ -11,16 +12,21 @@ import { UserService } from 'src/app/services/user.service'
 export class SubscriptionComponent implements OnInit {
 
   subscriptions : Subscription[] | null = null;
+  selectedSub : Subscription | null = null;
 
   constructor(private subscriptionService : SubscriptionService) {}
 
   ngOnInit(): void {
-    this.subscriptionService.getSubscriptionsForUser(4)
+    this.subscriptionService.getSubscriptionsForUser(2)
     .toPromise()
     .then(items => {
       this.subscriptions = items
     })
     
+  }
+
+  onSelect(subscription : Subscription){
+    this.selectedSub = subscription;
   }
 
 }
