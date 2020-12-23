@@ -49,13 +49,13 @@ export default class EpicService {
     return this.http.get<Epic>(`${this.baseUrl}/highestrated`, { headers: headers })
   }
 
-  getChaptersForEpic(id: number): Observable<Chapter[]> {
+  getChaptersForEpic(id: number): Promise<Chapter[]> {
     const accessToken = this.oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
-    return this.http.get<Chapter[]>(`${this.baseUrl}/${id}/chapters`, { headers: headers })
+    return this.http.get<Chapter[]>(`${this.baseUrl}/${id}/chapters`, { headers: headers }).toPromise();
   }
 
   deleteEpicById(id: number) {
