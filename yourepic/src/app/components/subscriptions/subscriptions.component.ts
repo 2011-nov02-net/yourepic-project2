@@ -28,7 +28,7 @@ export class SubscriptionsComponent implements OnInit {
         this.userID = user.id
       });
     })
-    this.subscriptionService.getSubscriptionsForUser(4)
+    this.subscriptionService.getSubscriptionsForUser(this.userID)
     .toPromise()
     .then(items => {
       this.subscriptions = items
