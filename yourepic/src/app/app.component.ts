@@ -12,17 +12,37 @@ import { UserService } from './services/user.service';
 export class AppComponent implements OnInit {
   isAuthenticated = false;
 
-  constructor(private oktaAuth: OktaAuthService) {
+  isReader = false;
+  isPublisher = false;
+  isUnassigned = false;
+
+  user!: string
+
+  constructor(private oktaAuth: OktaAuthService, private userService: UserService) {
     this.oktaAuth.$authenticationState.subscribe((isAuthenticated) =>
       this.updateAuthState(isAuthenticated));
   }
 
   ngOnInit(): void {
-    this.oktaAuth.isAuthenticated().then((isAuthenticated) => {
+    this.oktaAuth.$authenticationState.subscribe((isAuthenticated) => {
       this.updateAuthState(isAuthenticated)
+      if (isAuthenticated) {
+        this.oktaAuth.getUser().then(user => {
+          this.userService.getUserByEmail(user.userEmail).subscribe(user => {
+            this.updateRole(user.role.name);
+            this.user = user.name
+          });
+
+        })
+      }
     });
   }
 
+  updateRole(role: string){
+    role === "Publisher" ? this.isPublisher = true : this.isPublisher = false
+    role === "Reader" ? this.isReader = true : this.isReader = false
+    role === "unassigned" ? this.isUnassigned = true : this.isUnassigned = false
+  }
   updateAuthState(isAuthenticated: boolean) {
     this.isAuthenticated = isAuthenticated;
   }

@@ -37,9 +37,3 @@
     margin-left: 180px; /* Same as the width of the sidebar */
     padding: 0px 10px;
   }
-
-  #oneLine {
-    white-space: nowrap;
-    overflow: hidden;
-    width: 80%;
-  }

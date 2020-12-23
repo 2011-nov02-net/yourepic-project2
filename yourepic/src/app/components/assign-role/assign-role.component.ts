@@ -23,7 +23,7 @@ export class AssignRoleComponent implements OnInit {
     this.oktaAuth.isAuthenticated().then((isAuthenticated) => {
       if (isAuthenticated) {
         this.oktaAuth.getUser().then(user => {
-          this.userService.getUserByEmail(user.userEmail).then(user => {
+          this.userService.getUserByEmail(user.userEmail).subscribe(user => {
             user.role.id = 1
             this.userService.updateUser(user.id, user)
           });
@@ -36,7 +36,7 @@ export class AssignRoleComponent implements OnInit {
     this.oktaAuth.isAuthenticated().then((isAuthenticated) => {
       if (isAuthenticated) {
         this.oktaAuth.getUser().then(user => {
-          this.userService.getUserByEmail(user.userEmail).then(user => {
+          this.userService.getUserByEmail(user.userEmail).subscribe(user => {
             user.role.id = 2
             this.userService.updateUser(user.id, user)
           });
