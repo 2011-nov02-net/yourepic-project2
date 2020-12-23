@@ -19,6 +19,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ReaderComponent } from './components/reader-components/reader/reader.component';
 import { PubNavComponent } from './components/publisher-components/pub-nav/pub-nav.component';
 import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
+import { ReadNavComponent } from './components/reader-components/read-nav/read-nav.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -44,7 +45,7 @@ const config = {
     NavigationComponent,
     ReaderComponent,
     PubNavComponent,
-    AddChapterComponent
+    ReadNavComponent
   ],
   imports: [
     BrowserModule,
