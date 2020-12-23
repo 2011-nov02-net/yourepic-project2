@@ -14,6 +14,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { EpicComponent } from './components/epic/epic.component';
 import { PubHomeComponent } from './components/publisher-components/pub-home/pub-home.component';
 import { ChaptersSidebarComponent } from './components/chapters-sidebar/chapters-sidebar.component';
+import { CreateEpicComponent } from './components/create-epic/create-epic.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -34,7 +35,8 @@ const config = {
     EntryComponent,
     EpicComponent,
     PubHomeComponent,
-    ChaptersSidebarComponent
+    ChaptersSidebarComponent,
+    CreateEpicComponent
   ],
   imports: [
     BrowserModule,

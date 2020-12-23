@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { OktaCallbackComponent } from '@okta/okta-angular'
 import { AppComponent } from './app.component';
 import { ChaptersSidebarComponent } from './components/chapters-sidebar/chapters-sidebar.component';
+import { CreateEpicComponent } from './components/create-epic/create-epic.component';
 import { EpicComponent } from './components/epic/epic.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -12,9 +13,10 @@ const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent},
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent},
-  {path: 'epic', component: EpicComponent},
+  { path: 'epic', component: EpicComponent},
   { path: '', component: PubHomeComponent},
-  { path: 'epicChapters/:id', component: ChaptersSidebarComponent}
+  { path: 'epicChapters/:id', component: ChaptersSidebarComponent},
+  { path: 'createEpic', component: CreateEpicComponent}
 ];
 
 @NgModule({
