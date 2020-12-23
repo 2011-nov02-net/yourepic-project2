@@ -21,7 +21,7 @@ import { PubNavComponent } from './components/publisher-components/pub-nav/pub-n
 import { ReadNavComponent } from './components/reader-components/read-nav/read-nav.component';
 import { FeaturedComponent } from './components/reader-components/featured/featured.component';
 import { ReadEpicListComponent } from './components/reader-components/read-epic-list/read-epic-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -58,6 +58,7 @@ const config = {
     HttpClientModule,
     AppRoutingModule,     
     FormsModule,
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: config}],
