@@ -14,7 +14,7 @@ export class EpicComponent implements OnInit {
   epics: Epic[] | null = null;
   selectedEpic: Epic| null = null;
 
-  constructor(private epicService: EpicService, private userService: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getPublishersEpics(1)
