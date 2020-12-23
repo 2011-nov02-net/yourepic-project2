@@ -12,6 +12,8 @@ import { EntryComponent } from './components/entry/entry.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { EpicComponent } from './components/epic/epic.component';
 import { PubHomeComponent } from './components/publisher-components/pub-home/pub-home.component';
+import { ChaptersSidebarComponent } from './components/chapters-sidebar/chapters-sidebar.component';
+import { CreateEpicComponent } from './components/create-epic/create-epic.component';
 import { AssignRoleComponent } from './components/assign-role/assign-role.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ReaderComponent } from './components/reader-components/reader/reader.component';
@@ -36,6 +38,8 @@ const config = {
     EntryComponent,
     EpicComponent,
     PubHomeComponent,
+    ChaptersSidebarComponent,
+    CreateEpicComponent,
     AssignRoleComponent,
     NavigationComponent,
     ReaderComponent,

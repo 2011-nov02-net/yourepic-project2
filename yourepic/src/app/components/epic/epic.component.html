@@ -1,12 +1,14 @@
-
+<app-pub-nav></app-pub-nav>
 <div class="container" *ngIf="selectedEpic">
   <h2 class="primary-heading">Most Recent Epic</h2>
+  <a routerLink = "/createEpic">Create Epic</a>
   <mdb-card>
     <mdb-card-body>
 
       <!--Title-->
       <mdb-card-title>
         <h4>{{selectedEpic.title | uppercase}} Insight</h4>
+        <a routerLink = "/epicChapters/{{selectedEpic.id}}">View Epic</a>
       </mdb-card-title>
 
       <!--Text-->
