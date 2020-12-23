@@ -13,7 +13,12 @@ export class SubscriptionService {
   constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getSubscriptionsForUser(id:number): Observable<Subscription[]>{
-    return this.http.get<Subscription[]>(`${this.baseUrl}/${id}`)
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.get<Subscription[]>(`${this.baseUrl}/${id}`, { headers : headers})
   }
 
   subscribe(subsriberId:number, publisherId:number, subscription: Subscription){

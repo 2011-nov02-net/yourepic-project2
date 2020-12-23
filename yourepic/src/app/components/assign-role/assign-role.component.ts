@@ -20,29 +20,27 @@ export class AssignRoleComponent implements OnInit {
   }
 
   assignReader() {
-    this.oktaAuth.isAuthenticated().then((isAuthenticated) => {
-      if (isAuthenticated) {
+    
         this.oktaAuth.getUser().then(user => {
           this.userService.getUserByEmail(user.userEmail).subscribe(user => {
             user.role.id = 1
             this.userService.updateUser(user.id, user)
           });
         })
-      }
-    })
+      
+    
   }
 
   assignPublisher() {
-    this.oktaAuth.isAuthenticated().then((isAuthenticated) => {
-      if (isAuthenticated) {
+    
         this.oktaAuth.getUser().then(user => {
           this.userService.getUserByEmail(user.userEmail).subscribe(user => {
             user.role.id = 2
             this.userService.updateUser(user.id, user)
           });
         })
-      }
-    })
+      
+    
   }
 
   updateAuthState(isAuthenticated: boolean) {
