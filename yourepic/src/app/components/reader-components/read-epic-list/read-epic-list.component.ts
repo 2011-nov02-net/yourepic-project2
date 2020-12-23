@@ -21,7 +21,7 @@ export class ReadEpicListComponent implements OnInit {
   headElements = ['Title', 'Author', 'Categories', 'Date Created', 'Rating']
   selectedEpic!: Epic
   selected = false;
-  searchText: string = '';
+  searchText!: string;
 
   @HostListener('input') oninput() {
     this.searchItems();
@@ -53,12 +53,13 @@ export class ReadEpicListComponent implements OnInit {
   }
 
   searchItems() {
+    console.log(this.searchText)
     const prev = this.mdbTable.getDataSource();
     if (!this.searchText) {
       this.mdbTable.setDataSource(this.previous);
       this.epics = this.mdbTable.getDataSource();
     }
-    if (this.searchText) {
+    if (this.searchText) {    
       this.epics = this.mdbTable.searchLocalDataBy(this.searchText);
       this.mdbTable.setDataSource(prev);
     }

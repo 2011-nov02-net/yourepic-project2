@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-read-nav',
@@ -8,13 +7,9 @@ import { FormControl } from '@angular/forms';
 })
 export class ReadNavComponent implements OnInit {
 
-  search = new FormControl('');
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  showResults(){
-    console.log(this.search.value)
-  }
 }
