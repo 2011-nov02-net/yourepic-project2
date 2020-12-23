@@ -23,32 +23,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.oktaAuth.isAuthenticated().then((isAuthenticated) => {
-      this.updateAuthState(isAuthenticated)
-      if (isAuthenticated) {
-        this.oktaAuth.getUser().then(user => {
-          this.userService.getUserByEmail(user.userEmail).then(user => {
-            this.user = user
-            user.role.name === "Publisher" ? this.isPublisher = true : this.isPublisher = false
-            user.role.name === "Reader" ? this.isReader = true : this.isReader = false
-            user.role.name === "unassigned" ? this.isUnassigned = true : this.isUnassigned = false
-          }).catch(response => {
-            if (response.status === 404) {
-              this.oktaAuth.getUser().then(user => {
-                this.userService.createUser({
-                  name: user.fullName,
-                  email: user.userEmail,
-                  role: {
-                    id: 3,
-                    name: 'unassigned'
-                  }
-                }).subscribe()
-              })
-            }
-          });
-        })
-      }
-    });
   }
 
   updateAuthState(isAuthenticated: boolean) {

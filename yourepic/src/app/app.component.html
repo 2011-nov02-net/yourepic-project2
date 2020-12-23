@@ -1,2 +1,15 @@
 <app-entry *ngIf="!isAuthenticated"></app-entry>
+<div *ngIf="isReader">
+  <app-read-nav></app-read-nav>
+  <app-reader></app-reader>
+</div>
+<div *ngIf="isUnassigned">
+  <app-entry></app-entry>
+  <app-assign-role *ngIf="isAuthenticated && isUnassigned"></app-assign-role>
+</div>
+<div *ngIf="isPublisher">
+  <app-pub-nav></app-pub-nav>
+  <app-pub-home></app-pub-home>
+</div>
+User: {{user}}
 <router-outlet></router-outlet>

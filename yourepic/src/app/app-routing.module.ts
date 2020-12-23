@@ -5,7 +5,6 @@ import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent},
-  { path: '', component: HomeComponent}
 ];
 
 @NgModule({

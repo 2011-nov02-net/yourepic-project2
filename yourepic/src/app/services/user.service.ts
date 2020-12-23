@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment'
 import User from '../interfaces/user';
 import Epic from '../interfaces/epic';
 import { OktaAuthService } from '@okta/okta-angular';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -71,13 +72,12 @@ export class UserService {
     .toPromise()
   }
 
-  getUserByEmail(email:string): Promise<any>{
+  getUserByEmail(email:string): Observable<User>{
     const accessToken = this.oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
-    return this.http.get<any>(`${this.baseUrl}/email/${email}`, { headers: headers })
-    .toPromise()
+    return this.http.get<User>(`${this.baseUrl}/email/${email}`, { headers: headers })
   }
 }
