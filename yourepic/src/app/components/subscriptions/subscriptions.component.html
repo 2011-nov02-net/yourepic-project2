@@ -1,0 +1,20 @@
+<div *ngIf="subscriptions">
+    <div *ngIf="subscriptions.length === 0">
+        This user is not subscribed to any publishers yet.
+    </div>
+    <table class="table">
+        <tr>
+            <th>Publisher Name </th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let subscription of subscriptions" (click)="onSelect(subscription)">
+            <td>{{subscription.publisher.name}}</td>
+            <td *ngIf="subscription.hasNewContent">This publisher has new content!</td>
+        </tr>
+    </table>
+
+    <!--Do Something here to redirect to epic component-->
+    <ul *ngIf="selectedSub">
+        <li>you have clicked {{selectedSub.publisher.name}}</li>
+    </ul>
+</div>
