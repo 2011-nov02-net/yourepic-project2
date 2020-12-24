@@ -29,11 +29,10 @@ export class AppComponent implements OnInit {
       this.updateAuthState(isAuthenticated)
       if (isAuthenticated) {
         this.oktaAuth.getUser().then(user => {
-          this.userService.getUserByEmail(user.userEmail).subscribe(user => {
-            this.updateRole(user.role.name);
-            this.user = user.name
-          });
-
+          this.userService.getUserByEmail(user.userEmail).subscribe(
+            res => this.updateRole(res.role.name),
+            err => this.userService.createUser({ name: user.fullName, email: user.userEmail, id: 0, role: { id: 3, name: 'unassigned' } }),
+          )
         })
       }
     });
@@ -43,7 +42,7 @@ export class AppComponent implements OnInit {
     if (role === "Publisher") {
       this.isPublisher = true
       if (this.router.url === '/') {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['epic']);
       }
     }
     if (role === 'Reader') {

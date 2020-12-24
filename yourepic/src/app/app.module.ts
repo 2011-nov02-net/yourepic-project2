@@ -10,7 +10,6 @@ import { LoginComponent } from './components/login/login.component';
 import { EntryComponent } from './components/entry/entry.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { EpicComponent } from './components/epic/epic.component';
-import { PubHomeComponent } from './components/publisher-components/pub-home/pub-home.component';
 import { ChaptersSidebarComponent } from './components/chapters-sidebar/chapters-sidebar.component';
 import { CreateEpicComponent } from './components/create-epic/create-epic.component';
 import { AssignRoleComponent } from './components/assign-role/assign-role.component';
@@ -28,6 +27,7 @@ import { OpenEpicComponent } from './components/reader-components/open-epic/open
 import { ReadEpicComponent } from './components/reader-components/read-epic/read-epic.component';
 import { RatingModule } from 'ng-starrating';
 import { SubscribeTogglerComponent } from './components/reader-components/subscribe-toggler/subscribe-toggler.component';
+import { EmptyNavComponent } from './components/empty-nav/empty-nav.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -45,7 +45,6 @@ const config = {
     LoginComponent,
     EntryComponent,
     EpicComponent,
-    PubHomeComponent,
     ChaptersSidebarComponent,
     CreateEpicComponent,
     AssignRoleComponent,
@@ -61,7 +60,8 @@ const config = {
     SubscribeTogglerComponent,
     AddChapterComponent,
     CategoryConfigComponent,
-    SubscriptionsComponent
+    SubscriptionsComponent,
+    EmptyNavComponent
   ],
   imports: [
     BrowserModule,

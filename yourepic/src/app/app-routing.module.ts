@@ -9,7 +9,6 @@ import { CreateEpicComponent } from './components/create-epic/create-epic.compon
 import { EpicComponent } from './components/epic/epic.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { PubHomeComponent } from './components/publisher-components/pub-home/pub-home.component'
 import { ReadEpicListComponent } from './components/reader-components/read-epic-list/read-epic-list.component';
 import { ReadEpicComponent } from './components/reader-components/read-epic/read-epic.component';
 import { ReaderComponent } from './components/reader-components/reader/reader.component';
@@ -22,7 +21,6 @@ const routes: Routes = [
   { path: 'epic', component: EpicComponent },
   { path: 'epicChapters/:id', component: ChaptersSidebarComponent },
   { path: 'createEpic', component: CreateEpicComponent },
-  { path: 'dashboard', component: PubHomeComponent },
   { path: 'browse', component: ReadEpicListComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
   { path: 'read/:id', component: ReadEpicComponent },
