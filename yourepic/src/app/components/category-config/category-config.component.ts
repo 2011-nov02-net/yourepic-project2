@@ -52,6 +52,7 @@ export class CategoryConfigComponent implements OnInit {
 
   save():void {
     this.categoryService.categorizeEpic(this.newCategories, this.epicID).toPromise();
+    this.location.back();
   }
 
   goBack(): void {
