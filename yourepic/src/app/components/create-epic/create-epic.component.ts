@@ -3,6 +3,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 import Epic from 'src/app/interfaces/epic';
 import EpicService from 'src/app/services/epic.service';
 import { UserService } from 'src/app/services/user.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-epic',
@@ -11,11 +12,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CreateEpicComponent implements OnInit {
 
-  constructor(private epicService: EpicService, private oktaAuth: OktaAuthService, private userService: UserService) { }
+  constructor(private epicService: EpicService, 
+              private oktaAuth: OktaAuthService, 
+              private userService: UserService,
+              private location: Location) { }
 
   
   ngOnInit(): void {
-
   }
 
   add(title: string, concept: string): void {
@@ -30,6 +33,10 @@ export class CreateEpicComponent implements OnInit {
         });
       })
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

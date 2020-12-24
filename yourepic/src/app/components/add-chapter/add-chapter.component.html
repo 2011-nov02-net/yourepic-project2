@@ -1,7 +1,7 @@
 <button (click)="goBack()" class="btn btn-primary">Go Back</button>
 
 <div id="centerDiv">
-    <h1>Epic Creation Wizard</h1>
+    <h1>Chapter Creation Wizard</h1>
 </div>
 
 <mdb-card>
@@ -9,7 +9,7 @@
     <mdb-card-body>
       <!--Title-->
       <mdb-card-title>
-        <h4>What is the Title of Your Epic?</h4>
+        <h4>Chapter Title: </h4>
       </mdb-card-title>
       <!--Text-->
       <mdb-card-text> 
@@ -17,16 +17,16 @@
       </mdb-card-text>
   
       <mdb-card-title>
-        <h4>What is Your Epic Going to be About? </h4>
+        <h4>Chapter Text: </h4>
       </mdb-card-title>
       <!--Text-->
       <mdb-card-text> 
-        <textarea #concept type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
+        <textarea #text type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
         
       </mdb-card-text>
 
       <div id="rightDiv">
-        <button (click)="add(title.value, concept.value)" class="btn btn-primary">Create Epic</button>
+        <button (click)="add(title.value, text.value)" class="btn btn-primary">Add Chapter</button>
       </div>
     </mdb-card-body>
   </mdb-card>

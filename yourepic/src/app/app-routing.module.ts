@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { OktaCallbackComponent } from '@okta/okta-angular'
+import { AppComponent } from './app.component';
+import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
+import { CategoryConfigComponent } from './components/category-config/category-config.component';
 import { ChaptersSidebarComponent } from './components/chapters-sidebar/chapters-sidebar.component';
 import { CreateEpicComponent } from './components/create-epic/create-epic.component';
 import { EpicComponent } from './components/epic/epic.component';
@@ -22,7 +25,13 @@ const routes: Routes = [
   { path: 'dashboard', component: PubHomeComponent },
   { path: 'browse', component: ReadEpicListComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
-  { path: 'read/:id', component: ReadEpicComponent }
+  { path: 'read/:id', component: ReadEpicComponent },
+  { path: 'login/callback', component: OktaCallbackComponent},
+  { path: 'epicChapters/:id', component: ChaptersSidebarComponent},
+  { path: 'createEpic', component: CreateEpicComponent},
+  { path: 'addChapter/:epicID', component: AddChapterComponent},
+  { path: 'categories/:epicID', component: CategoryConfigComponent },
+  { path: 'subscriptions', component: SubscriptionsComponent}
 ];
 
 @NgModule({
