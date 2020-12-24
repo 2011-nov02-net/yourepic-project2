@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>Browse</h2>
+  <div>
+    <div class="row container">
+      <div>
+        <div class="md-form">
+          <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput />
+          <label for="search">Search</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10">
+        <table mdbTable #tableEl="mdbTable">
+          <thead>
+            <tr>
+              <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr [class.selected]="epic === selectedEpic" (click)="onSelect(epic)" mdbTableCol
+              *ngFor="let epic of epics; let i = index">
+              <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">
+                {{epic.title}}</th>
+              <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                {{epic.author.name}}</td>
+              <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                <span *ngFor="let category of epic.categories">
+                  {{category.name}} |
+                </span>
+              </td>
+              <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{epic.date}}
+              </td>
+              <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                <star-rating [value]="epic.averageRating" [totalstars]="5" checkedcolor="#ffbb33" uncheckedcolor="black"
+                  size="24px" [readonly]="true"></star-rating>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot class="">
+            <tr>
+              <td colspan="4">
+                <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="epics"></mdb-table-pagination>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div *ngIf="selected" class="col">
+        <h3>Concept:</h3>
+        <p>{{selectedEpic.concept}}</p>
+        <div>
+          <app-open-epic [epic]="selectedEpic"></app-open-epic>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
