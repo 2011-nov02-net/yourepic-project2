@@ -9,8 +9,7 @@ import { OktaAuthService } from '@okta/okta-angular';
   providedIn: 'root'
 })
 export class ChapterService {
-  private baseUrl = environment.baseUrl;
-
+  private baseUrl = `${environment.baseUrl}`;
   constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
   getChapterById(id: number): Observable<Chapter> {
@@ -18,7 +17,12 @@ export class ChapterService {
   }
 
   addChapter(chapter: Chapter): Observable<Chapter> {
-    return this.http.post<Chapter>(`${this.baseUrl}/chapters`, chapter)
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.post<Chapter>(`${this.baseUrl}/chapters`, chapter, {headers: headers});
   }
 
   deleteChapter(chapter: Chapter | number): Observable<Chapter> {
@@ -28,8 +32,13 @@ export class ChapterService {
   }
 
   updateChapter(chapter: Chapter | number): Observable<any>{    
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
     const id = typeof chapter === 'number' ? chapter : chapter.id;
 
-    return this.http.put(`${this.baseUrl}/chapters/${id}`, chapter)
+    return this.http.put(`${this.baseUrl}/chapters/${id}`, chapter, { headers: headers })
   }
 }

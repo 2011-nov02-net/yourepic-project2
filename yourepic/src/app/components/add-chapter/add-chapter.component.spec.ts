@@ -1,22 +1,22 @@
 // import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { FeaturedComponent } from './featured.component';
+// import { AddChapterComponent } from './add-chapter.component';
 
-// describe('FeaturedComponent', () => {
-//   let component: FeaturedComponent;
-//   let fixture: ComponentFixture<FeaturedComponent>;
+// describe('AddChapterComponent', () => {
+//   let component: AddChapterComponent;
+//   let fixture: ComponentFixture<AddChapterComponent>;
 
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
-//       declarations: [ FeaturedComponent ]
+//       declarations: [ AddChapterComponent ]
 //     })
 //     .compileComponents();
 //   });
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(FeaturedComponent);
+//     fixture = TestBed.createComponent(AddChapterComponent);
 //     component = fixture.componentInstance;
-//      fixture.detectChanges();
+//     fixture.detectChanges();
 //   });
 
 //   it('should create', () => {

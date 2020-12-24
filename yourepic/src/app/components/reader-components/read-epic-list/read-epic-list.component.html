@@ -32,7 +32,8 @@
               <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{epic.date}}
               </td>
               <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
-                {{epic.averageRating}}/5
+                <star-rating [value]="epic.averageRating" [totalstars]="5" checkedcolor="#ffbb33" uncheckedcolor="black"
+                  size="24px" [readonly]="true"></star-rating>
               </td>
             </tr>
           </tbody>

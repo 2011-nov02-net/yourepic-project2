@@ -28,7 +28,7 @@ export default class EpicService {
       Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
-    return this.http.get<Epic>(`${this.baseUrl}/${id}`, { headers: headers })
+    return this.http.get<Epic>(`${this.baseUrl}/${id}`, { headers: headers });
   }
 
   getFeaturedEpic(): Observable<Epic>{

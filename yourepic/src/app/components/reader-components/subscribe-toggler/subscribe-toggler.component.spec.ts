@@ -1,20 +1,20 @@
 // import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { OpenEpicComponent } from './open-epic.component';
+// import { SubscribeTogglerComponent } from './subscribe-toggler.component';
 
-// describe('OpenEpicComponent', () => {
-//   let component: OpenEpicComponent;
-//   let fixture: ComponentFixture<OpenEpicComponent>;
+// describe('SubscribeTogglerComponent', () => {
+//   let component: SubscribeTogglerComponent;
+//   let fixture: ComponentFixture<SubscribeTogglerComponent>;
 
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
-//       declarations: [ OpenEpicComponent ]
+//       declarations: [ SubscribeTogglerComponent ]
 //     })
 //     .compileComponents();
 //   });
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(OpenEpicComponent);
+//     fixture = TestBed.createComponent(SubscribeTogglerComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });
