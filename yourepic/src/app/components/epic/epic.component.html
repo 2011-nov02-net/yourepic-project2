@@ -16,7 +16,7 @@
           <li class="list-group-item"><span style="font-weight: bold;">Created: </span>{{selectedEpic.date}}</li>
           <li class="list-group-item"><span style="font-weight: bold;">Categories: </span>
             <span *ngFor="let category of selectedEpic.categories">
-             | {{category.name}} |
+              {{category.name}} |
             </span>
           <li class="list-group-item"><span style="font-weight: bold;">Chapter Count:
             </span>{{selectedEpic.chapterCount}}</li>
@@ -26,8 +26,7 @@
           </li>
           <li class="list-group-item"><span style="font-weight: bold;">Average Rating:
             </span>
-            <star-rating [value]="selectedEpic.averageRating" [totalstars]="5" checkedcolor="#ffbb33" uncheckedcolor="black"
-              size="24px" [readonly]="false"></star-rating>
+            {{ selectedEpic.averageRating | number:'1.1-1'}}
           </li>
         </ul>
       </mdb-card-text>
