@@ -42,17 +42,15 @@ export class ReadEpicComponent implements OnInit {
   }
 
   onRate($event: { oldValue: number, newValue: number, starRating: StarRatingComponent }) {
+
     this.oktaAuth.getUser().then(user => {
       this.userService.getUserByEmail(user.userEmail).subscribe(user => {
         this.ratingService.addRating({ id: 0, raterid: user.id, epicid: this.epic.id, rater: user.name, ratingnumber: $event.newValue }).subscribe(response => {
-
-          this.addedRating  =true
-          if (response !== 200) {
-            this.addedRating  =true
-            this.ratingService.updateRatingById(user.id, { id: 0, raterid: user.id, epicid: this.epic.id, rater: user.name, ratingnumber: $event.newValue }).subscribe()
-          }
+          console.log(response)
+          this.addedRating = true
         })
-      });
-    })
+      })
+    });
   }
 }
+
