@@ -22,13 +22,13 @@ export default class EpicService {
     return this.http.get<Epic[]>(`${this.baseUrl}?title=${title}?category=${category}`, { headers: headers })
   }
 
-  getEpicById(id: number): Promise<Epic> {
+  getEpicById(id: number): Observable<Epic> {
     const accessToken = this.oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
-    return this.http.get<Epic>(`${this.baseUrl}/${id}`, { headers: headers }).toPromise();
+    return this.http.get<Epic>(`${this.baseUrl}/${id}`, { headers: headers });
   }
 
   getFeaturedEpic(): Observable<Epic>{

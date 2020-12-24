@@ -38,7 +38,7 @@ export class CategoryConfigComponent implements OnInit {
   getEpic(): void {
     const id: number = this.route.snapshot.paramMap.get('epicID')! as unknown as number;
     this.epicID = id;
-    this.epicService.getEpicById(id).then(ep => {
+    this.epicService.getEpicById(id).subscribe(ep => {
       this.epic = ep;
       this.epicsCategories = ep.categories;
       this.selectedCategory = this.epicsCategories[0];

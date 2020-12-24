@@ -32,7 +32,7 @@ export class ChaptersSidebarComponent implements OnInit {
     this.epicID = id;
     this.epicService.getChaptersForEpic(id)
         .then(items => { this.chapters = items; this.viewChapter = items[0]});
-    this.epicService.getEpicById(id).then(epic => {
+    this.epicService.getEpicById(id).subscribe(epic => {
       this.epicTitle = epic.title;
     });
   }
