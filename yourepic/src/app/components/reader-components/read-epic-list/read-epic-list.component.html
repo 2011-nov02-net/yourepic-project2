@@ -48,6 +48,9 @@
       <div *ngIf="selected" class="col">
         <h3>Concept:</h3>
         <p>{{selectedEpic.concept}}</p>
+        <div>
+          <app-open-epic [epic]="selectedEpic"></app-open-epic>
+        </div>
       </div>
     </div>
   </div>

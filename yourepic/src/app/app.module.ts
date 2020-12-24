@@ -23,6 +23,8 @@ import { FeaturedComponent } from './components/reader-components/featured/featu
 import { ReadEpicListComponent } from './components/reader-components/read-epic-list/read-epic-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
+import { OpenEpicComponent } from './components/reader-components/open-epic/open-epic.component';
+import { ReadEpicComponent } from './components/reader-components/read-epic/read-epic.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -51,7 +53,9 @@ const config = {
     ReadNavComponent,
     FeaturedComponent,
     ReadEpicListComponent,
-    SubscriptionsComponent
+    SubscriptionsComponent,
+    OpenEpicComponent,
+    ReadEpicComponent
   ],
   imports: [
     BrowserModule,

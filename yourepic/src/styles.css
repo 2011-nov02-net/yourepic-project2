@@ -2,7 +2,7 @@
 
 html, body {
   height: 100%;
-  background-image: linear-gradient(to bottom, rgba(106, 90, 205, .5), rgba(240, 163, 10, .5));
+  background-image: linear-gradient(to bottom, rgba(106, 90, 205, .25), rgba(240, 163, 10, .25));
 }
 
 body {
