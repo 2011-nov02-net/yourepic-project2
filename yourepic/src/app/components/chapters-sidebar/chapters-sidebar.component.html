@@ -1,34 +1,55 @@
-<div class="sidenav">
-    <h1 id="sideBarHead">Chapters</h1>
-    <div *ngFor="let _chapter of chapters">
-        <li [class.selected]="_chapter === viewChapter" (click)="onSelect(_chapter)" ><a>{{_chapter.title}}</a></li>
-    </div>
-</div>
+<div id="wrapper">
 
-<button (click)="goBack()" class="btn btn-primary" id="main">Go Back</button>
-<div id="centerDiv">
-<button routerLink="/addChapter/{{epicID}}" class="btn btn-primary">Add Chapter (+)</button>
-<button routerLink="/categories/{{epicID}}" class="btn btn-primary">Edit Epic Categories</button>
- </div>
-<div class="container" id="main">
-    <mdb-card>
-      <mdb-card-body *ngIf="viewChapter">
-        <div><h2 class="primary-heading">{{epicTitle}}</h2></div>
-        <!--Title-->
-        <mdb-card-title>
-          <h4>{{viewChapter.title | uppercase}}</h4>
-        </mdb-card-title>
-  
-        <!--Text-->
-        <mdb-card-text>
-          <div class="form-outline">
-            <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]="viewChapter.text">{{viewChapter.text}}</textarea>
-            <button class="btn btn-primary" (click)="updateChapter(viewChapter)">Save Changes</button>
-          </div>
-
-        </mdb-card-text>
-  
-      </mdb-card-body>
-    </mdb-card>
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <h3 class="container">
+          <span class="logo">Chapters</span>
+        </h3>
+      </li>
+      <li *ngFor="let chapter of chapters" (click)="onSelect(chapter)">
+        <span style="color:#ffbb33;">{{chapter.title}}</span>
+      </li>
+    </ul>
   </div>
-  
+  <!-- /#sidebar-wrapper -->
+
+  <div class="text-right" style="margin-right: 2em;">
+    <button (click)="goBack()" class="btn btn-primary" id="main">Go Back</button>
+    <div class="container">
+      <button routerLink="/addChapter/{{epicID}}" class="btn btn-primary">Add Chapter (+)</button>
+      <button routerLink="/categories/{{epicID}}" class="btn btn-primary">Edit Epic Categories</button>
+       </div>
+  </div>
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <mdb-card>
+            <mdb-card-body *ngIf="viewChapter">
+              <div><h2 class="primary-heading">{{epicTitle}}</h2></div>
+              <!--Title-->
+              <mdb-card-title>
+                <h4>{{viewChapter.title | uppercase}}</h4>
+              </mdb-card-title>
+
+              <!--Text-->
+              <mdb-card-text>
+                <div class="form-outline">
+                  <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]="viewChapter.text">{{viewChapter.text}}</textarea>
+                  <button class="btn btn-primary" (click)="updateChapter(viewChapter)">Save Changes</button>
+                </div>
+
+              </mdb-card-text>
+
+            </mdb-card-body>
+          </mdb-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->

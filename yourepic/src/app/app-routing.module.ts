@@ -25,7 +25,6 @@ const routes: Routes = [
   { path: 'subscriptions', component: SubscriptionsComponent },
   { path: 'read/:id', component: ReadEpicComponent },
   { path: 'login/callback', component: OktaCallbackComponent},
-  { path: 'epicChapters/:id', component: ChaptersSidebarComponent},
   { path: 'createEpic', component: CreateEpicComponent},
   { path: 'addChapter/:epicID', component: AddChapterComponent},
   { path: 'categories/:epicID', component: CategoryConfigComponent },
