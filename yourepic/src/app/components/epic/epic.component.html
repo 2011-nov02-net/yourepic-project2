@@ -16,7 +16,7 @@
           <li class="list-group-item"><span style="font-weight: bold;">Created: </span>{{selectedEpic.date}}</li>
           <li class="list-group-item"><span style="font-weight: bold;">Categories: </span>
             <span *ngFor="let category of selectedEpic.categories">
-              {{category.name}}
+             | {{category.name}} |
             </span>
           <li class="list-group-item"><span style="font-weight: bold;">Chapter Count:
             </span>{{selectedEpic.chapterCount}}</li>
