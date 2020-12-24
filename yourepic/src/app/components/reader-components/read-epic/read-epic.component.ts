@@ -46,9 +46,7 @@ export class ReadEpicComponent implements OnInit {
       this.userService.getUserByEmail(user.userEmail).subscribe(user => {
         console.log(user.id)
         this.ratingService.addRating({ id: 0, raterid: user.id, epicid: this.epic.id, rater: user.name, ratingnumber: $event.newValue }).subscribe(response => {
-          console.log('hello')
         })
-
       });
     })
   }
