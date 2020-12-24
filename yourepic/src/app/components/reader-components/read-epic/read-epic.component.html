@@ -20,6 +20,7 @@
     <span *ngIf="addedRating">Your Rating has been added!</span>
     <star-rating [value]="epic.averageRating" [totalstars]="5" checkedcolor="#ffbb33" uncheckedcolor="black" size="24px"
       [readonly]="false" (rate)="onRate($event)"></star-rating>
+      <app-subscribe-toggler [publisher]="epic.author"></app-subscribe-toggler>
   </div>
   <!-- Page Content -->
   <div *ngIf="selectedChapter" id="page-content-wrapper">

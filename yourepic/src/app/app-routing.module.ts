@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReadEpicListComponent } from './components/reader-components/read-epic-list/read-epic-list.component';
 import { ReadEpicComponent } from './components/reader-components/read-epic/read-epic.component';
 import { ReaderComponent } from './components/reader-components/reader/reader.component';
+import { SubEpicComponent } from './components/sub-epic/sub-epic.component';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'browse', component: ReadEpicListComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
   { path: 'read/:id', component: ReadEpicComponent },
-  { path: 'login/callback', component: OktaCallbackComponent},
+  { path: 'subepic/:id', component: SubEpicComponent},
+  { path: 'epicChapters/:id', component: ChaptersSidebarComponent},
   { path: 'createEpic', component: CreateEpicComponent},
   { path: 'addChapter/:epicID', component: AddChapterComponent},
   { path: 'categories/:epicID', component: CategoryConfigComponent },

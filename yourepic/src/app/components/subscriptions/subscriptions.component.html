@@ -1,20 +1,25 @@
-<div *ngIf="subscriptions">
-    <div *ngIf="subscriptions.length === 0">
+<div class="container" *ngIf="subscriptions">
+    <h2>My Subscriptions</h2>
+    <div *ngIf="subscriptions.length === 0; else tBL">
         This user is not subscribed to any publishers yet.
     </div>
-    <table class="table">
-        <tr>
-            <th>Publisher Name </th>
-            <th></th>
-        </tr>
-        <tr *ngFor="let subscription of subscriptions" (click)="onSelect(subscription)">
-            <td>{{subscription.publisher.name}}</td>
-            <td *ngIf="subscription.hasNewContent">This publisher has new content!</td>
-        </tr>
-    </table>
+    <ng-template #tBL>
+        <div>
+            <table mdbTable>
+                <tr>
+                    <th>Publisher Name </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let subscription of subscriptions">
+                    <td>{{subscription.publisher.name}}</td>
+                    <td *ngIf="subscription.hasNewContent">This publisher has new content!</td>
+                    <td><a routerLink="/subepic/{{subscription.publisher.id}}"><button mdbBtn type="button" color="amber" class="waves-light" mdbWavesEffect>View Epics</button></a></td>
+                </tr>
+            </table>
+        </div>
+    </ng-template>
+    
+    
 
-    <!--Do Something here to redirect to epic component-->
-    <ul *ngIf="selectedSub">
-        <li>you have clicked {{selectedSub.publisher.name}}</li>
-    </ul>
 </div>
