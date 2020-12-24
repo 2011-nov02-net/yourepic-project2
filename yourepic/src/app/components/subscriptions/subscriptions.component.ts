@@ -26,12 +26,12 @@ export class SubscriptionsComponent implements OnInit {
     this.oktaAuth.getUser().then(user => {
       this.userService.getUserByEmail(user.userEmail).subscribe(user => {
         this.userID = user.id
-      });
-    })
-    this.subscriptionService.getSubscriptionsForUser(this.userID)
+        this.subscriptionService.getSubscriptionsForUser(user.id)
     .toPromise()
     .then(items => {
       this.subscriptions = items
+    })
+      });
     })
   }
   
