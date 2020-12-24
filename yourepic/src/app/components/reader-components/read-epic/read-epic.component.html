@@ -15,6 +15,12 @@
   </div>
   <!-- /#sidebar-wrapper -->
 
+  <div class="text-right" style="margin-right: 2em;">
+    <h2>Author: {{epic.author.name}}</h2>
+    <span *ngIf="addedRating">Your Rating has been added!</span>
+    <star-rating [value]="5" [totalstars]="5" checkedcolor="#ffbb33" uncheckedcolor="black" size="24px" [readonly]="false" (rate)="onRate($event)"></star-rating>
+    <app-subscribe-toggler [publisher]="epic.author"></app-subscribe-toggler>
+  </div>
   <!-- Page Content -->
   <div *ngIf="selectedChapter" id="page-content-wrapper">
     <div class="container-fluid">
@@ -26,7 +32,16 @@
       </div>
     </div>
   </div>
+  <div *ngIf="!selectedChapter">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Concept</h2>
+          <p>{{epic.concept}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- /#page-content-wrapper -->
-
 </div>
 <!-- /#wrapper -->
