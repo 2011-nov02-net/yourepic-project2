@@ -31,7 +31,8 @@ export class AppComponent implements OnInit {
         this.oktaAuth.getUser().then(user => {
           this.userService.getUserByEmail(user.userEmail).subscribe(
             res => this.updateRole(res.role.name),
-            err => this.userService.createUser({ name: user.fullName, email: user.userEmail, id: 0, role: { id: 3, name: 'unassigned' } }),
+            err => this.userService.createUser({ name: user.fullName, email: user.userEmail, id: 0, role: { id: 3, name: 'unassigned' } }).subscribe(),
+            ()=>console.log("Complete")
           )
         })
       }
