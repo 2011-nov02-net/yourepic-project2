@@ -21,11 +21,21 @@ export class SubscriptionService {
     return this.http.get<Subscription[]>(`${this.baseUrl}/${id}`, { headers : headers})
   }
 
-  subscribe(subsriberId:number, publisherId:number, subscription: Subscription){
-    return this.http.post(`${this.baseUrl}/${publisherId}/subscribee/${subsriberId}`, subscription)
+  subscribe(subscription: Subscription){
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.post(`${this.baseUrl}`, subscription, {headers : headers})
   }
 
   ubsubscribe(subsriberId:number, publisherId:number){
-    return this.http.delete(`${this.baseUrl}/${publisherId}/subscribee/${subsriberId}`)
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
+    return this.http.delete(`${this.baseUrl}/${publisherId}/subscribee/${subsriberId}`, { headers : headers})
   }
 }

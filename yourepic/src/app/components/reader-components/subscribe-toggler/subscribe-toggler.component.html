@@ -1,1 +1,3 @@
-<button mdbBtn type="button" color="amber" class="waves-light" (click)="subscribe()" mdbWavesEffect>Subscribe</button>
+<button *ngIf="!isSubscribed" mdbBtn type="button" color="amber" class="waves-light" (click)="subscribe()" mdbWavesEffect>Subscribe</button>
+
+<button *ngIf="isSubscribed" mdbBtn type="button" color="amber" class="waves-light" (click)="Unsubscribe()" mdbWavesEffect>Unsubscribe</button>
