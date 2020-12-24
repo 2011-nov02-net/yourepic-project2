@@ -51,6 +51,7 @@ export class SubscribeTogglerComponent implements OnInit {
   Unsubscribe(){
     this.subscriptionService.ubsubscribe(this.user.id, this.publisher.id).subscribe();
   }
+  
   updateAuthState(isAuthenticated: boolean) {
     
     this.isAuthenticated = isAuthenticated;

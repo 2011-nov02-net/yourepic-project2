@@ -1,4 +1,7 @@
-<app-entry *ngIf="!isAuthenticated"></app-entry>
+<div *ngIf="!isAuthenticated">
+  <app-empty-nav></app-empty-nav>
+  <app-home></app-home>
+</div>
 <div *ngIf="isReader">
   <app-read-nav></app-read-nav>
 </div>
@@ -9,4 +12,4 @@
 <div *ngIf="isPublisher">
   <app-pub-nav></app-pub-nav>
 </div>
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>

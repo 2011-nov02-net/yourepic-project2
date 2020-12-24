@@ -33,6 +33,7 @@ export class CreateEpicComponent implements OnInit {
         });
       })
     });
+    this.location.back();
   }
 
   goBack(): void {
