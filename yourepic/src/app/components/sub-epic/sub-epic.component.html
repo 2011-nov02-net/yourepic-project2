@@ -1,5 +1,5 @@
 <div class="container" *ngIf="epics">
-    <h2>My Epics</h2>
+    <h2>{{epics[0].author.name}} Epics</h2>
     <div *ngIf="epics.length === 0; else tBL">
         This user has no epics yet.
     </div>
@@ -8,10 +8,17 @@
             <table mdbTable>
                 <tr>
                     <th>Name</th>
-                    <th></th>
+                    <th>Categories</th>
+                    <th>Date Created</th>
+                    <th>Rating</th>
                 </tr>
                 <tr *ngFor="let epic of epics">
                     <td>{{epic.title}}</td>
+                    <td><span *ngFor="let category of epic.categories">
+                      {{category.name}} |
+                    </span></td>
+                    <td>{{epic.date}}</td>
+                    <td>{{epic.averageRating}}/5</td>
                     <td><app-open-epic [epic]="epic"></app-open-epic></td>
                 </tr>
             </table>
