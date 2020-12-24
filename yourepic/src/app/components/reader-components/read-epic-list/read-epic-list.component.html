@@ -29,7 +29,7 @@
                   {{category.name}} |
                 </span>
               </td>
-              <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{epic.date}}
+              <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{epic.date | date}}
               </td>
               <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
                 <star-rating [value]="epic.averageRating" [totalstars]="5" checkedcolor="#ffbb33" uncheckedcolor="black"

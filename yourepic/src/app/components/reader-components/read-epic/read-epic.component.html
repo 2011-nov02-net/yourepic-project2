@@ -17,6 +17,7 @@
 
   <div class="text-right" style="margin-right: 2em;">
     <h2>Author: {{epic.author.name}}</h2>
+    <small>Published: {{epic.date | date}}</small>
     <span *ngIf="addedRating">Your Rating has been added!</span>
     <star-rating [value]="epic.averageRating" [totalstars]="5" checkedcolor="#ffbb33" uncheckedcolor="black" size="24px"
       [readonly]="false" (rate)="onRate($event)"></star-rating>

@@ -18,7 +18,7 @@ export class ReadEpicListComponent implements OnInit {
   previous: any = [];
 
   epics!: Epic[]
-  headElements = ['Title', 'Author', 'Categories', 'Date Created', 'Rating']
+  headElements = ['Title', 'Author', 'Categories', 'Published', 'Rating']
   selectedEpic!: Epic
   selected = false;
   searchText!: string;
@@ -58,7 +58,7 @@ export class ReadEpicListComponent implements OnInit {
       this.mdbTable.setDataSource(this.previous);
       this.epics = this.mdbTable.getDataSource();
     }
-    if (this.searchText) {    
+    if (this.searchText) {
       this.epics = this.mdbTable.searchLocalDataBy(this.searchText);
       this.mdbTable.setDataSource(prev);
     }

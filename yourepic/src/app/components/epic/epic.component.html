@@ -13,7 +13,7 @@
       <!--Text-->
       <mdb-card-text>
         <ul class="list-group">
-          <li class="list-group-item"><span style="font-weight: bold;">Created: </span>{{selectedEpic.date}}</li>
+          <li class="list-group-item"><span style="font-weight: bold;">Created: </span>{{selectedEpic.date | date}}</li>
           <li class="list-group-item"><span style="font-weight: bold;">Categories: </span>
             <span *ngFor="let category of selectedEpic.categories">
               {{category.name}} |
