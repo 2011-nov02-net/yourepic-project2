@@ -5,7 +5,6 @@ import Epic from 'src/app/interfaces/epic';
 import { CategoryService } from 'src/app/services/category.service';
 import EpicService from 'src/app/services/epic.service';
 import { Location } from '@angular/common';
-import { debug } from 'console';
 
 @Component({
   selector: 'app-category-config',
@@ -13,11 +12,12 @@ import { debug } from 'console';
   styleUrls: ['./category-config.component.css']
 })
 export class CategoryConfigComponent implements OnInit {
-  categories: Category[] | null = null;
+  categories!: Category[];
   epic!: Epic;
   epicID!: number;
-  epicsCategories: Category[] | null = null;
-  selectedCategory: Category | null = null;
+  epicsCategories!: Category[];
+  selectedCategory!: Category ;
+  newCategories: Category[] = [];
 
   constructor(private route: ActivatedRoute, 
     private categoryService: CategoryService, 
@@ -30,27 +30,29 @@ export class CategoryConfigComponent implements OnInit {
   }
 
   getCategories(): void {
-    this.categoryService.getCategories().then(cats => {
+    this.categoryService.getCategories().subscribe(cats => {
       this.categories = cats
     });
-    debugger;
   }
 
   getEpic(): void {
     const id: number = this.route.snapshot.paramMap.get('epicID')! as unknown as number;
     this.epicID = id;
     this.epicService.getEpicById(id).then(ep => {
-      this.epic = ep
+      this.epic = ep;
+      this.epicsCategories = ep.categories;
+      this.selectedCategory = this.epicsCategories[0];
     });
-    debugger;
   }
 
-  public categorizeEpic(categories: Category[]): void {
-    this.categoryService.categorizeEpic(categories, this.epicID)
-  }
-
-  onSelect(category: Category): void {
+  onSelect(category: Category):void {
+    this.newCategories?.push(category);
     this.epicsCategories?.push(category);
+  }
+
+  save():void {
+    this.categoryService.categorizeEpic(this.newCategories, this.epicID).toPromise();
+    //this.epicService.updateEpic(this.epicID, this.epic);
   }
 
   goBack(): void {

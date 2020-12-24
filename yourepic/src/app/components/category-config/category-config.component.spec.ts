@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
+import EpicService from 'src/app/services/epic.service';
+import { Location } from '@angular/common';
 import { CategoryConfigComponent } from './category-config.component';
 
 describe('CategoryConfigComponent', () => {
@@ -7,8 +10,19 @@ describe('CategoryConfigComponent', () => {
   let fixture: ComponentFixture<CategoryConfigComponent>;
 
   beforeEach(async () => {
+    const fakeCategoryService = {
+
+    }
+
+
     await TestBed.configureTestingModule({
-      declarations: [ CategoryConfigComponent ]
+      declarations: [ CategoryConfigComponent ],
+      providers: [
+        { provide: CategoryService, useValue: {} },
+        { provide: EpicService, useValue: {} },
+        { provide: Location, useValue: {} },
+        { provide: ActivatedRoute, useValue: {} }
+      ]
     })
     .compileComponents();
   });

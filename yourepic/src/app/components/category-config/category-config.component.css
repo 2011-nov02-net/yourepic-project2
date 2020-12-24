@@ -7,3 +7,21 @@
    background-color: #808080;
    border-color: #808080;
 }
+
+#centerDiv {
+    text-align: center;
+    margin:auto;
+}
+#rightDiv {
+    float: right;
+}
+#listElement {
+    border-width: 1px;
+    border-color: black;
+}
+.dropdown-content {
+    border-color: black;
+    border-width: 1px;
+}
+
+.dropdown-content:hover {background-color: #808080}
