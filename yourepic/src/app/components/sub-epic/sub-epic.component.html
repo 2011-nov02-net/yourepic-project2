@@ -19,6 +19,8 @@
                     </span></td>
                     <td>{{epic.date}}</td>
                     <td>{{epic.averageRating}}/5</td>
+                    <td><star-rating [value]="epic.averageRating" [totalstars]="5" checkedcolor="#ffbb33" uncheckedcolor="black"
+                        size="24px" [readonly]="true"></star-rating></td>
                     <td><app-open-epic [epic]="epic"></app-open-epic></td>
                 </tr>
             </table>
