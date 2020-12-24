@@ -19,9 +19,15 @@ import { ReaderComponent } from './components/reader-components/reader/reader.co
 import { PubNavComponent } from './components/publisher-components/pub-nav/pub-nav.component';
 import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
 import { ReadNavComponent } from './components/reader-components/read-nav/read-nav.component';
+import { FeaturedComponent } from './components/reader-components/featured/featured.component';
+import { ReadEpicListComponent } from './components/reader-components/read-epic-list/read-epic-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryConfigComponent } from './components/category-config/category-config.component';
-import { FormsModule } from '@angular/forms';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
+import { OpenEpicComponent } from './components/reader-components/open-epic/open-epic.component';
+import { ReadEpicComponent } from './components/reader-components/read-epic/read-epic.component';
+import { RatingModule } from 'ng-starrating';
+import { SubscribeTogglerComponent } from './components/reader-components/subscribe-toggler/subscribe-toggler.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -47,6 +53,12 @@ const config = {
     ReaderComponent,
     PubNavComponent,
     ReadNavComponent,
+    FeaturedComponent,
+    ReadEpicListComponent,
+    SubscriptionsComponent,
+    OpenEpicComponent,
+    ReadEpicComponent,
+    SubscribeTogglerComponent,
     AddChapterComponent,
     CategoryConfigComponent,
     SubscriptionsComponent
@@ -54,11 +66,13 @@ const config = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    OktaAuthModule, 
+    OktaAuthModule,
     HttpClientModule,
-    AppRoutingModule,     
-    MDBBootstrapModule.forRoot(),
-    FormsModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RatingModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: config}],
   bootstrap: [AppComponent]
