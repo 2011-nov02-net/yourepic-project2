@@ -20,12 +20,9 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'epicChapters/:id', component: ChaptersSidebarComponent},
   { path: 'createEpic', component: CreateEpicComponent},
-<<<<<<< HEAD
   { path: 'addChapter/:epicID', component: AddChapterComponent},
-  { path: 'categories/:epicID', component: CategoryConfigComponent }
-=======
+  { path: 'categories/:epicID', component: CategoryConfigComponent },
   { path: 'subscriptions', component: SubscriptionsComponent}
->>>>>>> ee1b36896b5df96adbdaa055b7010f24ebc36861
 ];
 
 @NgModule({

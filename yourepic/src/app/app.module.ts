@@ -20,12 +20,9 @@ import { ReaderComponent } from './components/reader-components/reader/reader.co
 import { PubNavComponent } from './components/publisher-components/pub-nav/pub-nav.component';
 import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
 import { ReadNavComponent } from './components/reader-components/read-nav/read-nav.component';
-<<<<<<< HEAD
 import { CategoryConfigComponent } from './components/category-config/category-config.component';
 import { FormsModule } from '@angular/forms';
-=======
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
->>>>>>> ee1b36896b5df96adbdaa055b7010f24ebc36861
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -52,12 +49,9 @@ const config = {
     ReaderComponent,
     PubNavComponent,
     ReadNavComponent,
-<<<<<<< HEAD
     AddChapterComponent,
-    CategoryConfigComponent
-=======
+    CategoryConfigComponent,
     SubscriptionsComponent
->>>>>>> ee1b36896b5df96adbdaa055b7010f24ebc36861
   ],
   imports: [
     BrowserModule,

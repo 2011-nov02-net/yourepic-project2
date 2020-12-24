@@ -14,14 +14,9 @@ export class EpicComponent implements OnInit {
 
   epics: Epic[] | null = null;
   selectedEpic: Epic| null = null;
-<<<<<<< HEAD
   userID!: number;
   constructor(private userService: UserService, 
     private oktaAuth: OktaAuthService) { }
-=======
-
-  constructor(private userService: UserService) { }
->>>>>>> ee1b36896b5df96adbdaa055b7010f24ebc36861
 
   ngOnInit(): void {
 
