@@ -42,14 +42,13 @@ export class UserService {
     .toPromise()
   }
 
-  updateUser(id:number, user:User) {
+  updateUser(id:number, user:User){
     const accessToken = this.oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
     return this.http.put(`${this.baseUrl}/${id}`, user, { headers: headers })
-    .toPromise()
   }
 
   deleteUser(id:number): Promise<User>{

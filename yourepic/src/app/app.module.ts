@@ -19,9 +19,14 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ReaderComponent } from './components/reader-components/reader/reader.component';
 import { PubNavComponent } from './components/publisher-components/pub-nav/pub-nav.component';
 import { ReadNavComponent } from './components/reader-components/read-nav/read-nav.component';
+import { FeaturedComponent } from './components/reader-components/featured/featured.component';
+import { ReadEpicListComponent } from './components/reader-components/read-epic-list/read-epic-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 import { SubEpicComponent } from './components/sub-epic/sub-epic.component';
 import { SubChapterComponent } from './components/sub-chapter/sub-chapter.component';
+import { OpenEpicComponent } from './components/reader-components/open-epic/open-epic.component';
+import { ReadEpicComponent } from './components/reader-components/read-epic/read-epic.component';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -48,9 +53,13 @@ const config = {
     ReaderComponent,
     PubNavComponent,
     ReadNavComponent,
-    SubscriptionsComponent,
     SubEpicComponent,
-    SubChapterComponent
+    SubChapterComponent,
+    FeaturedComponent,
+    ReadEpicListComponent,
+    SubscriptionsComponent,
+    OpenEpicComponent,
+    ReadEpicComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +67,8 @@ const config = {
     OktaAuthModule, 
     HttpClientModule,
     AppRoutingModule,     
+    FormsModule,
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: config}],

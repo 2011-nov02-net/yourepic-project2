@@ -13,13 +13,13 @@ export default class EpicService {
   private baseUrl = `${environment.baseUrl}/epics`;
   constructor(private http: HttpClient, private oktaAuth: OktaAuthService) { }
 
-  getAllEpics(title: string | null, category: string | null): Observable<Epic[]> {
+  getAllEpics(title?: string, category?: string): Observable<Epic[]> {
     const accessToken = this.oktaAuth.getAccessToken();
     const headers = {
       Authorization: 'Bearer ' + accessToken,
       Accept: 'application/json',
     };
-    return this.http.get<Epic[]>(`${this.baseUrl}?title=${title}?category=${category}`, { headers: headers })
+    return this.http.get<Epic[]>(`${this.baseUrl}`, { headers: headers })
   }
 
   getEpicById(id: number): Observable<Epic> {
