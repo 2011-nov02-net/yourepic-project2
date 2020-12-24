@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OktaAuthModule, OktaCallbackComponent, OKTA_CONFIG } from '@okta/okta-angular';
-import { CategoryComponent } from './components/category/category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,7 +17,10 @@ import { AssignRoleComponent } from './components/assign-role/assign-role.compon
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ReaderComponent } from './components/reader-components/reader/reader.component';
 import { PubNavComponent } from './components/publisher-components/pub-nav/pub-nav.component';
+import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
 import { ReadNavComponent } from './components/reader-components/read-nav/read-nav.component';
+import { CategoryConfigComponent } from './components/category-config/category-config.component';
+import { FormsModule } from '@angular/forms';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 
 const config = {
@@ -33,7 +35,6 @@ const config = {
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryComponent,
     HomeComponent,
     LoginComponent,
     EntryComponent,
@@ -46,6 +47,8 @@ const config = {
     ReaderComponent,
     PubNavComponent,
     ReadNavComponent,
+    AddChapterComponent,
+    CategoryConfigComponent,
     SubscriptionsComponent
   ],
   imports: [
@@ -54,7 +57,8 @@ const config = {
     OktaAuthModule, 
     HttpClientModule,
     AppRoutingModule,     
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    FormsModule
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: config}],
   bootstrap: [AppComponent]

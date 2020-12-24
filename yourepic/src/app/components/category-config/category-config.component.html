@@ -1,0 +1,39 @@
+<button (click)="goBack()" class="btn btn-primary">Go Back</button>
+
+  <mdb-card>
+    <!--Card content-->
+    <mdb-card-body>
+
+        <div *ngIf="categories" class="dropdown" dropdown>
+            <a class="dropdown-toggle btn btn-primary  text-light" dropdownToggle>Categories</a>
+            <ul class="dropdown-menu">
+                <div *ngFor='let category of categories'>
+                    <div class="dropdown-content"><li (click)="onSelect(category)" id="listElement">{{category.name}}</li></div> 
+                </div>
+            </ul>
+        </div>
+      <!--Title-->
+      <mdb-card-title>
+        <h1 *ngIf="epic" id="centerDiv">{{epic.title}} Categories</h1>
+      </mdb-card-title>
+
+      <mdb-card-text> 
+        <div *ngIf="epicsCategories" class="container" id="centerDiv">
+            <ul class="list-group">
+              <li class="list-group-item" (click)="onSelect(category)"
+                *ngFor="let category of epicsCategories;">
+                <span class="listItem"></span> {{category.name}}
+              </li>
+            </ul>
+          </div>
+        
+      </mdb-card-text>
+
+      <div id="rightDiv">
+        <button (click)="save()" class="btn btn-primary">Submit</button>
+      </div>
+    </mdb-card-body>
+  </mdb-card>
+
+
+

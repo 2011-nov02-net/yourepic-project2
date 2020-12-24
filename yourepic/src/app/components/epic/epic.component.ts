@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OktaAuthService } from '@okta/okta-angular';
 import Epic from 'src/app/interfaces/epic';
 import User from 'src/app/interfaces/user';
 import  EpicService  from 'src/app/services/epic.service';
@@ -13,18 +14,27 @@ export class EpicComponent implements OnInit {
 
   epics: Epic[] | null = null;
   selectedEpic: Epic| null = null;
-
-  constructor(private userService: UserService) { }
+  userID!: number;
+  constructor(private userService: UserService, 
+    private oktaAuth: OktaAuthService) { }
 
   ngOnInit(): void {
-    this.userService.getPublishersEpics(1)
-      .then(items=> {
-          this.epics = items;
-          this.selectedEpic = items[0]
-      }).catch((error) => { console.error(error); });
-    
+
+    this.oktaAuth.getUser().then(user => {
+      this.userService.getUserByEmail(user.userEmail).subscribe(user => {
+        this.getPublishersEpics(user.id);
+
+      });
+    })
   }
 
+  getPublishersEpics(id: number) {
+    this.userService.getPublishersEpics(id)
+      .then(items=> {
+          this.epics = items;
+          this.selectedEpic = items[items.length-1]
+      }).catch((error) => { console.error(error); });
+  }
   onSelect(epic:Epic): void{
     this.selectedEpic = epic
   }
