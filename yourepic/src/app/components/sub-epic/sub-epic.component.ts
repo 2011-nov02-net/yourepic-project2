@@ -19,7 +19,7 @@ export class SubEpicComponent implements OnInit {
   constructor(private userService: UserService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const id: number = this.route.snapshot.paramMap.get('id')! as unknown as number;
+    const id: number = this.route.snapshot.params['id'];
     this.userService.getPublishersEpics(id)
       .then(items=> {
           this.epics = items;

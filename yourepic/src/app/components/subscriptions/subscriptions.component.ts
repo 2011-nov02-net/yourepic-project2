@@ -28,17 +28,13 @@ export class SubscriptionsComponent implements OnInit {
         this.userID = user.id
       });
     })
-    this.subscriptionService.getSubscriptionsForUser(this.userID)
+    this.subscriptionService.getSubscriptionsForUser(4)
     .toPromise()
     .then(items => {
       this.subscriptions = items
     })
   }
-
-  onSelect(subscription : Subscription){
-    this.selectedSub = subscription;
-  }
-
+  
   updateAuthState(isAuthenticated: boolean) {
     
     this.isAuthenticated = isAuthenticated;

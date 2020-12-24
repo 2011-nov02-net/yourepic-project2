@@ -1,42 +1,21 @@
-<div class="container">  <h2>My Epics</h2>
-    <ul class="list-group">
-      <li class="list-group-item" [class.selected]="epic === selectedEpic" (click)="onSelect(epic)"
-        *ngFor="let epic of epics; index as i; first as isFirst">
-        <span class="listItem">{{i+1}}</span> | {{epic.title}}
-      </li>
-    </ul>
-</div>
+<div class="container" *ngIf="epics">
+    <h2>My Epics</h2>
+    <div *ngIf="epics.length === 0; else tBL">
+        This user has no epics yet.
+    </div>
+    <ng-template #tBL>
+        <div>
+            <table mdbTable>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let epic of epics">
+                    <td>{{epic.title}}</td>
+                    <td><app-open-epic [epic]="epic"></app-open-epic></td>
+                </tr>
+            </table>
+        </div>
+    </ng-template>
 
-<div class="container" *ngIf="selectedEpic">
-    <h2 class="primary-heading">Most Recent Epic</h2>
-    <mdb-card>
-      <mdb-card-body>
-  
-        <!--Title-->
-        <mdb-card-title>
-          <h4>{{selectedEpic.title | uppercase}} Insight</h4>
-          <a routerLink = "/subchapter/{{selectedEpic.id}}">View Epic</a>
-        </mdb-card-title>
-  
-        <!--Text-->
-        <mdb-card-text>
-          <ul class="list-group">
-            <li class="list-group-item"><span style="font-weight: bold;">Created: </span>{{selectedEpic.date}}</li>
-            <li class="list-group-item"><span style="font-weight: bold;">Categories: </span>
-              <span *ngFor="let category of selectedEpic.categories">
-                {{category.name}}
-              </span>
-            <li class="list-group-item"><span style="font-weight: bold;">Chapter Count:
-              </span>{{selectedEpic.chapterCount}}</li>
-            <li class="list-group-item"><span style="font-weight: bold;">Comment Count:
-              </span>{{selectedEpic.commentCount}}</li>
-            <li class="list-group-item"><span style="font-weight: bold;">Rating Count: </span>{{selectedEpic.ratingCount}}
-            </li>
-            <li class="list-group-item"><span style="font-weight: bold;">Average Rating:
-              </span>{{selectedEpic.averageRating}}</li>
-          </ul>
-        </mdb-card-text>
-  
-      </mdb-card-body>
-    </mdb-card>
-  </div>
+</div>

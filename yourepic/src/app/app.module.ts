@@ -24,7 +24,6 @@ import { ReadEpicListComponent } from './components/reader-components/read-epic-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 import { SubEpicComponent } from './components/sub-epic/sub-epic.component';
-import { SubChapterComponent } from './components/sub-chapter/sub-chapter.component';
 import { OpenEpicComponent } from './components/reader-components/open-epic/open-epic.component';
 import { ReadEpicComponent } from './components/reader-components/read-epic/read-epic.component';
 
@@ -54,7 +53,6 @@ const config = {
     PubNavComponent,
     ReadNavComponent,
     SubEpicComponent,
-    SubChapterComponent,
     FeaturedComponent,
     ReadEpicListComponent,
     SubscriptionsComponent,
