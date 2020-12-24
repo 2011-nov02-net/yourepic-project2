@@ -1,5 +1,6 @@
 <div id="wrapper">
 
+<<<<<<< HEAD
   <!-- Sidebar -->
   <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
@@ -14,6 +15,28 @@
     </ul>
   </div>
   <!-- /#sidebar-wrapper -->
+=======
+<button (click)="goBack()" class="btn btn-primary" id="main">Go Back</button>
+<div id="centerDiv">
+<button routerLink="/addChapter/{{epicID}}" class="btn btn-primary">Add Chapter (+)</button>
+<button routerLink="/categories/{{epicID}}" class="btn btn-primary">Edit Epic Categories</button>
+ </div>
+<div class="container" id="main">
+    <mdb-card>
+      <mdb-card-body *ngIf="viewChapter">
+        <div><h2 class="primary-heading">{{epicTitle}}</h2></div>
+        <!--Title-->
+        <mdb-card-title>
+          <h4>{{viewChapter.title | uppercase}}</h4>
+        </mdb-card-title>
+  
+        <!--Text-->
+        <mdb-card-text>
+          <div class="form-outline">
+            <textarea class="form-control" id="textAreaExample" rows="10" [(ngModel)]="viewChapter.text">{{viewChapter.text}}</textarea>
+            <button class="btn btn-primary" (click)="updateChapter(viewChapter)">Save Changes</button>
+          </div>
+>>>>>>> 7bc2bbef69fb1d0d5e20eea6c7c7fd89b7afdf12
 
   <div class="text-right" style="margin-right: 2em;">
     <button (click)="goBack()" class="btn btn-primary" id="main">Go Back</button>
