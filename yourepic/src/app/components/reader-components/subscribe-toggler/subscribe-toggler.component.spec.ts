@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubscribeTogglerComponent } from './subscribe-toggler.component';
+// import { SubscribeTogglerComponent } from './subscribe-toggler.component';
 
-describe('SubscribeTogglerComponent', () => {
-  let component: SubscribeTogglerComponent;
-  let fixture: ComponentFixture<SubscribeTogglerComponent>;
+// describe('SubscribeTogglerComponent', () => {
+//   let component: SubscribeTogglerComponent;
+//   let fixture: ComponentFixture<SubscribeTogglerComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ SubscribeTogglerComponent ]
-    })
-    .compileComponents();
-  });
+//   beforeEach(async () => {
+//     await TestBed.configureTestingModule({
+//       declarations: [ SubscribeTogglerComponent ]
+//     })
+//     .compileComponents();
+//   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SubscribeTogglerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(SubscribeTogglerComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
