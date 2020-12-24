@@ -32,8 +32,13 @@ export class ChapterService {
   }
 
   updateChapter(chapter: Chapter | number): Observable<any>{    
+    const accessToken = this.oktaAuth.getAccessToken();
+    const headers = {
+      Authorization: 'Bearer ' + accessToken,
+      Accept: 'application/json',
+    };
     const id = typeof chapter === 'number' ? chapter : chapter.id;
 
-    return this.http.put(`${this.baseUrl}/chapters/${id}`, chapter)
+    return this.http.put(`${this.baseUrl}/chapters/${id}`, chapter, { headers: headers })
   }
 }

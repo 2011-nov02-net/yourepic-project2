@@ -4,6 +4,8 @@ import Chapter from 'src/app/interfaces/chapter';
 import EpicService  from 'src/app/services/epic.service';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { ChapterService } from 'src/app/services/chapter.service';
  
 @Component({
  selector: 'app-chapters-sidebar',
@@ -15,7 +17,11 @@ export class ChaptersSidebarComponent implements OnInit {
   chapters: Chapter[] | null = null;
   viewChapter!: Chapter;
   epicID!: number;
-  constructor(private epicService: EpicService, private route: ActivatedRoute) { }
+  epicTitle!: string;
+  constructor(private epicService: EpicService,
+    private chapterService: ChapterService, 
+    private route: ActivatedRoute,
+    private location: Location) { }
  
   ngOnInit(): void {
     this.getChapters();
@@ -26,9 +32,21 @@ export class ChaptersSidebarComponent implements OnInit {
     this.epicID = id;
     this.epicService.getChaptersForEpic(id)
         .then(items => { this.chapters = items; this.viewChapter = items[0]});
-    }
+    this.epicService.getEpicById(id).then(epic => {
+      this.epicTitle = epic.title;
+    });
+  }
+
+  updateChapter(chapter: Chapter) {
+    this.chapterService.updateChapter(chapter).toPromise();
+  }
+
  
   onSelect(chapter: Chapter): void {
     this.viewChapter = chapter;
- }
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

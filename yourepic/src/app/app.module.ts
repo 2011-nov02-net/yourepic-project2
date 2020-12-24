@@ -21,6 +21,7 @@ import { PubNavComponent } from './components/publisher-components/pub-nav/pub-n
 import { AddChapterComponent } from './components/add-chapter/add-chapter.component';
 import { ReadNavComponent } from './components/reader-components/read-nav/read-nav.component';
 import { CategoryConfigComponent } from './components/category-config/category-config.component';
+import { FormsModule } from '@angular/forms';
 
 const config = {
   issuer: 'https://dev-7824301.okta.com/oauth2/default',
@@ -56,7 +57,8 @@ const config = {
     OktaAuthModule, 
     HttpClientModule,
     AppRoutingModule,     
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    FormsModule
   ],
   providers: [{ provide: OKTA_CONFIG, useValue: config}],
   bootstrap: [AppComponent]
