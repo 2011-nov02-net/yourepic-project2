@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: 'myhome', component: ReaderComponent},
   { path: 'login', component: LoginComponent},
   { path: 'epic', component: EpicComponent},
-  { path: '', component: HomeComponent},
   { path: 'epicChapters/:id', component: ChaptersSidebarComponent},
   { path: 'createEpic', component: CreateEpicComponent},
   {path: 'dashboard', component: PubHomeComponent},

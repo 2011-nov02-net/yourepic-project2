@@ -1,12 +1,47 @@
-<div *ngIf="isReader">
-  <app-read-nav></app-read-nav>
-  <app-reader></app-reader>
-</div>
-<div *ngIf="isUnassigned">
-  <app-entry></app-entry>
-  <app-assign-role *ngIf="isAuthenticated && isUnassigned"></app-assign-role>
-</div>
-<div *ngIf="isPublisher">
-  <app-pub-nav></app-pub-nav>
-  <app-pub-home></app-pub-home>
+<div class="container">
+  <br />
+  <mdb-card>
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h1>Remember, Your<span class="logo">Epic</span></h1>
+      </mdb-card-title>
+      <!--Text-->
+      <mdb-card-text>
+        <ul style="list-style-type:none;">
+          <li>Have you ever had an idea for a book?</li>
+          <li>Does the thought of completing a book seem impossible?</li>
+          <li>Do you have a passion for writing and want to share your work, finished or not?</li>
+          <li>Do you love reading and want to follow your favorite writers?</li>
+        </ul>
+      </mdb-card-text>
+    </mdb-card-body>
+    <mdb-card-body class="col">
+      <!--Title-->
+      <mdb-card-title>
+        <h2>With Your<span class="logo">Epic</span></h2>
+      </mdb-card-title>
+      <!--Text-->
+      <mdb-card-text>
+        You can do all these things!
+        You can be your avid reader self and consume all the new content Publishers are writing! On the flip side,
+        if you want to publish your own content you can do that too!
+      </mdb-card-text>
+    </mdb-card-body>
+    <mdb-card-body class="col">
+      <!--Title-->
+      <mdb-card-title>
+        <h2>Login</h2>
+      </mdb-card-title>
+      <!--Text-->
+      <mdb-card-text>
+        <div class="container">
+          <app-login></app-login>
+        </div>
+        <div class="container">
+          <small>If you don't have account click you will be prompted to create on the login screen.</small>
+        </div>
+      </mdb-card-text>
+    </mdb-card-body>
+  </mdb-card>
 </div>

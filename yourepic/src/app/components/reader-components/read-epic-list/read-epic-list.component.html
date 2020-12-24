@@ -1,8 +1,8 @@
 <div class="container">
   <h2>Browse</h2>
   <div>
-    <div class="row">
-      <div class="col-md-12 mx-auto">
+    <div class="row container">
+      <div>
         <div class="md-form">
           <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput />
           <label for="search">Search</label>
@@ -36,7 +36,7 @@
               </td>
             </tr>
           </tbody>
-          <tfoot class="grey lighten-5 w-100">
+          <tfoot class="">
             <tr>
               <td colspan="4">
                 <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="epics"></mdb-table-pagination>
