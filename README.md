@@ -65,8 +65,7 @@ You will not be able to use most of the site unless the back end is running
 Live Version: [YourEpic](yourepic.azurewebsites.net/)
 
 To interact directly with the API you can create request with your favorite HTTP Request maker or on the browser.
-S
-I highly recommend you visit the other github repo and learn to run them both simultaneously. As it stands this is just a REST API.
+I highly recommend you visit the other github repo and learn to run them both simultaneously. As it stands this is just the front end in development mode. It will not interact with any API unless you visit the other github and run that as well.
 
 ## License
 YourEpic uses the MIT License Format 
